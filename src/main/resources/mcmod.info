@@ -1,0 +1,16 @@
+[
+{
+  "modid": "spar",
+  "name": "Specialized Armor",
+  "description": "The default Minecraft armor system is a system of progressive upgrades in a linear fashion.  This mod changes that by allowing armors to branch off in different directions, specialized to certain activities.  This mod includes more than just armor.",
+  "version": "Beta Initial Build",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["RandomShrub"],
+  "credits": "All of the contents of this mod were created by RandomShrub.",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
