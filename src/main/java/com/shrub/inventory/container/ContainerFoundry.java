@@ -1,6 +1,6 @@
 package com.shrub.inventory.container;
 
-import com.shrub.blocks.tileentity.TileEntityFoundry;
+import com.shrub.tileentity.TileEntityFoundry;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

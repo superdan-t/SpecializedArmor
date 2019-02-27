@@ -1,4 +1,4 @@
-package com.shrub.blocks.templates;
+package com.shrub.blocks.generic;
 
 import java.util.Random;
 

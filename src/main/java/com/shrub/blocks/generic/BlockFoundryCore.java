@@ -1,4 +1,4 @@
-package com.shrub.blocks.templates;
+package com.shrub.blocks.generic;
 
 import com.shrub.blocks.ModBlocks;
 import com.shrub.main.Main;

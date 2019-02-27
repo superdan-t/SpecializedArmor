@@ -2,9 +2,9 @@ package com.shrub.inventory.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.shrub.blocks.tileentity.TileEntityFoundry;
 import com.shrub.inventory.container.ContainerFoundry;
 import com.shrub.main.Main;
+import com.shrub.tileentity.TileEntityFoundry;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiButton;

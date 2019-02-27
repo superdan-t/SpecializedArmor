@@ -1,8 +1,8 @@
-package com.shrub.blocks.templates;
+package com.shrub.blocks.machine;
 
 import com.shrub.blocks.ModBlocks;
-import com.shrub.blocks.tileentity.TileEntityComputer;
 import com.shrub.main.Main;
+import com.shrub.tileentity.TileEntityComputer;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
@@ -26,9 +26,9 @@ public class BlockTileComputer extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 	
-	public BlockTileComputer(boolean on) {
+	public BlockTileComputer(String blockName, boolean on) {
 		super(Material.iron);
-		this.setBlockName(on ? "computerOn" : "computerOff");
+		this.setBlockName(blockName + (on ? "On" : "Off"));
 		this.setHardness(2F);
 		this.setResistance(4F);
 		this.setStepSound(soundTypeMetal);

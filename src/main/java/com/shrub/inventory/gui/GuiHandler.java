@@ -1,10 +1,10 @@
 package com.shrub.inventory.gui;
 
-import com.shrub.blocks.tileentity.TileEntityComputer;
-import com.shrub.blocks.tileentity.TileEntityFoundry;
 import com.shrub.inventory.container.ContainerComputer;
 import com.shrub.inventory.container.ContainerFoundry;
 import com.shrub.main.Main;
+import com.shrub.tileentity.TileEntityComputer;
+import com.shrub.tileentity.TileEntityFoundry;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;

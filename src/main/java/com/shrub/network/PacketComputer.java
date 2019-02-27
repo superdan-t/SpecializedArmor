@@ -1,6 +1,6 @@
 package com.shrub.network;
 
-import com.shrub.blocks.tileentity.TileEntityComputer;
+import com.shrub.tileentity.TileEntityComputer;
 
 import cpw.mods.fml.common.network.simpleimpl.IMessage;
 import cpw.mods.fml.common.network.simpleimpl.IMessageHandler;

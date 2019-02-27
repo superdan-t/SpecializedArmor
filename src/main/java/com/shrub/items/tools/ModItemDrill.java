@@ -61,6 +61,8 @@ public class ModItemDrill extends ModItemPickaxe {
 				else
 					direction = 1;
 				
+				System.out.println(direction);
+				
 				int blocksBroken = 0;
 				
 				switch (direction) {

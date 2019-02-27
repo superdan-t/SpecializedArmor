@@ -1,13 +1,19 @@
 package com.shrub.blocks;
 
-import com.shrub.blocks.templates.*;
-import com.shrub.blocks.tileentity.TileEntityComputer;
-import com.shrub.blocks.tileentity.TileEntityEnergyTest;
-import com.shrub.blocks.tileentity.TileEntityFoundry;
+import com.shrub.blocks.generic.BlockChimney;
+import com.shrub.blocks.generic.BlockFoundryCore;
+import com.shrub.blocks.generic.BlockKaolinite;
+import com.shrub.blocks.generic.BlockLavaTank;
+import com.shrub.blocks.generic.BlockMachineComponent;
+import com.shrub.blocks.generic.BlockOre;
+import com.shrub.blocks.machine.*;
 import com.shrub.info.*;
 import com.shrub.items.itemblocks.ItemChimneyBlock;
 import com.shrub.items.itemblocks.ItemLavaTankBlock;
 import com.shrub.main.Main;
+import com.shrub.tileentity.TileEntityComputer;
+import com.shrub.tileentity.TileEntityEnergyTest;
+import com.shrub.tileentity.TileEntityFoundry;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -53,10 +59,10 @@ public final class ModBlocks {
 		
 //		GameRegistry.registerBlock(coolFurnaceIdle = new BlockCoolFurnace(false), CoolFurnaceInformation.class, "coolFurnaceIdle");
 //		GameRegistry.registerBlock(coolFurnaceActive = new BlockCoolFurnace(true), "coolFurnaceActive");
-		GameRegistry.registerBlock(computerOff = new BlockTileComputer(false), "computerOff");
+//		GameRegistry.registerBlock(computerOff = new BlockTileComputer(false), "computerOff");
 		GameRegistry.registerBlock(chimney = new BlockChimney("brick"), ItemChimneyBlock.class, chimney.getUnlocalizedName().substring(5));
 //		GameRegistry.registerBlock(demoTile = new BlockTileBomb("demoTile"), "demoTile");
-		GameRegistry.registerBlock(foundryCase = new BlockMachine("foundryCase", Material.iron), "foundryCase");
+		GameRegistry.registerBlock(foundryCase = new BlockMachineComponent("foundryCase", Material.iron), "foundryCase");
 		GameRegistry.registerBlock(foundryCoreAdvanced = new BlockFoundryCore("Advanced"), "foundryCoreAdvanced");
 		GameRegistry.registerBlock(foundryCoreBasic = new BlockFoundryCore("Basic"), "foundryCoreBasic");
 		GameRegistry.registerBlock(foundryHatchCool = new BlockTileFoundryHatch(false), "foundryHatchCool");

@@ -1,11 +1,11 @@
-package com.shrub.blocks.tileentity;
+package com.shrub.tileentity;
 
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 
-public abstract class ModTileEntityMachine extends TileEntity implements ISidedInventory {
+public abstract class TileEntityMachineTemplate extends TileEntity implements ISidedInventory {
 	
 	/**
 	 * The inventory slots in this TileEntity.
@@ -14,13 +14,13 @@ public abstract class ModTileEntityMachine extends TileEntity implements ISidedI
 	
 	public String localizedName;
 
-	public ModTileEntityMachine() { }
+	public TileEntityMachineTemplate() { }
 	
-	public ModTileEntityMachine(String localizedName) {
+	public TileEntityMachineTemplate(String localizedName) {
 		this.localizedName = localizedName;
 	}
 	
-	public ModTileEntityMachine(String localizedName, int slotsCount) {
+	public TileEntityMachineTemplate(String localizedName, int slotsCount) {
 		this.slots = new ItemStack[slotsCount];
 	}
 

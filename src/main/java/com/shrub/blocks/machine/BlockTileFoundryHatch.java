@@ -1,10 +1,10 @@
-package com.shrub.blocks.templates;
+package com.shrub.blocks.machine;
 
 import java.util.Random;
 
 import com.shrub.blocks.ModBlocks;
-import com.shrub.blocks.tileentity.TileEntityFoundry;
 import com.shrub.main.Main;
+import com.shrub.tileentity.TileEntityFoundry;
 
 import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;

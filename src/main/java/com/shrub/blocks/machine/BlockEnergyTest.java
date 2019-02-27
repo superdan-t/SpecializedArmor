@@ -1,7 +1,7 @@
-package com.shrub.blocks.templates;
+package com.shrub.blocks.machine;
 
 import com.shrub.blocks.ModBlocks;
-import com.shrub.blocks.tileentity.TileEntityEnergyTest;
+import com.shrub.tileentity.TileEntityEnergyTest;
 
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;

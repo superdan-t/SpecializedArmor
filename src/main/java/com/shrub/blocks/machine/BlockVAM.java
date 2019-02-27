@@ -1,4 +1,4 @@
-package com.shrub.blocks.templates;
+package com.shrub.blocks.machine;
 
 public class BlockVAM {
 

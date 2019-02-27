@@ -1,9 +1,9 @@
-package com.shrub.blocks.tileentity;
+package com.shrub.tileentity;
 
 import com.shrub.inventory.ControlChipUtility;
 import com.shrub.items.ModItems;
 
-public class TileEntityComputer extends ModTileEntityMachine {
+public class TileEntityComputer extends TileEntityMachineTemplate {
 	
 	private static String localizedName;
 	private ControlChipUtility ctrlChipUtil = new ControlChipUtility();

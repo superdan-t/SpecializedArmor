@@ -2,11 +2,11 @@ package com.shrub.inventory.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.shrub.blocks.tileentity.TileEntityComputer;
 import com.shrub.inventory.container.ContainerComputer;
 import com.shrub.main.Main;
 import com.shrub.network.ModPacketHandler;
 import com.shrub.network.PacketComputer;
+import com.shrub.tileentity.TileEntityComputer;
 
 import cpw.mods.fml.client.config.GuiButtonExt;
 import cpw.mods.fml.client.config.GuiSlider;

@@ -1,7 +1,7 @@
-package com.shrub.blocks.tileentity;
+package com.shrub.tileentity;
 
 import com.shrub.blocks.ModBlocks;
-import com.shrub.blocks.templates.BlockTileFoundryHatch;
+import com.shrub.blocks.machine.BlockTileFoundryHatch;
 import com.shrub.items.ModItems;
 import com.shrub.main.MachineRecipes;
 
@@ -21,7 +21,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ChatComponentText;
 
-public class TileEntityFoundry extends ModTileEntityMachine {
+public class TileEntityFoundry extends TileEntityMachineTemplate {
 
 	private static String localizedName;
 	

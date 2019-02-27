@@ -1,4 +1,4 @@
-package com.shrub.blocks.tileentity;
+package com.shrub.tileentity;
 
 import cofh.api.energy.EnergyStorage;
 import cofh.api.energy.IEnergyHandler;
