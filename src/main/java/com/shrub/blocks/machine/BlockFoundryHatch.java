@@ -25,7 +25,7 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-public class BlockTileFoundryHatch extends BlockContainer {
+public class BlockFoundryHatch extends BlockContainer {
 	
 	private final boolean isHot;
 	
@@ -37,7 +37,7 @@ public class BlockTileFoundryHatch extends BlockContainer {
 	@SideOnly(Side.CLIENT)
 	private IIcon iconTop;
 
-	public BlockTileFoundryHatch(boolean isHot) {
+	public BlockFoundryHatch(boolean isHot) {
 		super(Material.iron);
 		this.isHot = isHot;
 		this.setBlockName(isHot ? "foundryHot" : "foundryCold");

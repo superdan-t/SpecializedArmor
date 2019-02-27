@@ -14,7 +14,7 @@ public class Main {
 	
     public static final String modID = "spar";
     public static final String modName = "Random Shrub's Specialized Armor";
-    public static final String version = "0.1.0";
+    public static final String version = "0.2.1";
     
     public static final int guiIDFoundry = 0;
     public static final int guiIDComputer = 1;

@@ -29,6 +29,8 @@ public class GuiComputer extends GuiContainer {
 	
 	private int guiMode = 0;
 	
+	private int animationStage = 0;
+	
 	private String logMessage = "";
 
 	public GuiComputer(InventoryPlayer inventoryPlayer, TileEntityComputer entity) {
@@ -38,6 +40,12 @@ public class GuiComputer extends GuiContainer {
 		this.xSize = 176;
 		this.ySize = 206;
 		
+	}
+	
+	public void updateScreen() {
+		animationStage++;
+		if (animationStage >= 20)
+			animationStage = 0;
 	}
 
 	@Override
@@ -95,7 +103,7 @@ public class GuiComputer extends GuiContainer {
 		} else if (guiMode == 4) {
 
 			fontRendererObj.drawString(I18n.format("gui.system") + "> " + logMessage, guiLeft + 12, guiTop + 93 - fontRendererObj.FONT_HEIGHT * 2, 0xFFFFFF);
-			fontRendererObj.drawString(I18n.format("gui.system") + "> " + (computer.animationStage < 10 ? "_" : ""), guiLeft + 12, guiTop + 95 - fontRendererObj.FONT_HEIGHT, 0xFFFFFF);
+			fontRendererObj.drawString(I18n.format("gui.system") + "> " + (animationStage < 10 ? "_" : ""), guiLeft + 12, guiTop + 95 - fontRendererObj.FONT_HEIGHT, 0xFFFFFF);
 			
 			if (updateButtons) {
 				removeButtons();

@@ -26,8 +26,8 @@ public final class ModBlocks {
 	public static Block coolFurnaceIdle;
 	public static Block coolFurnaceActive;
 	public static Block chimney;
-	public static Block computerOff;
-	public static Block computerOn;
+	public static Block computerBasic;
+	public static Block computerDesktop;
 	public static Block demoTile;
 	public static Block energyTest;
 	public static Block foundryCase;
@@ -59,14 +59,15 @@ public final class ModBlocks {
 		
 //		GameRegistry.registerBlock(coolFurnaceIdle = new BlockCoolFurnace(false), CoolFurnaceInformation.class, "coolFurnaceIdle");
 //		GameRegistry.registerBlock(coolFurnaceActive = new BlockCoolFurnace(true), "coolFurnaceActive");
-//		GameRegistry.registerBlock(computerOff = new BlockTileComputer(false), "computerOff");
+		GameRegistry.registerBlock(computerBasic = new BlockComputerBasic(), "computerBasic");
+		GameRegistry.registerBlock(computerDesktop = new BlockComputerDesktop(), "computerDesktop");
 		GameRegistry.registerBlock(chimney = new BlockChimney("brick"), ItemChimneyBlock.class, chimney.getUnlocalizedName().substring(5));
 //		GameRegistry.registerBlock(demoTile = new BlockTileBomb("demoTile"), "demoTile");
 		GameRegistry.registerBlock(foundryCase = new BlockMachineComponent("foundryCase", Material.iron), "foundryCase");
 		GameRegistry.registerBlock(foundryCoreAdvanced = new BlockFoundryCore("Advanced"), "foundryCoreAdvanced");
 		GameRegistry.registerBlock(foundryCoreBasic = new BlockFoundryCore("Basic"), "foundryCoreBasic");
-		GameRegistry.registerBlock(foundryHatchCool = new BlockTileFoundryHatch(false), "foundryHatchCool");
-		GameRegistry.registerBlock(foundryHatchHot = new BlockTileFoundryHatch(true), "foundryHatchHot");
+		GameRegistry.registerBlock(foundryHatchCool = new BlockFoundryHatch(false), "foundryHatchCool");
+		GameRegistry.registerBlock(foundryHatchHot = new BlockFoundryHatch(true), "foundryHatchHot");
 //		GameRegistry.registerBlock(heater = new BlockMachine("heater", Material.rock), "heater");
 //		GameRegistry.registerBlock(heatGenerator = new BlockMachine("heatGenerator", Material.rock), "heatGenerator");
 		GameRegistry.registerBlock(kaoliniteClayBlock = new BlockKaolinite("kaoliniteClayBlock"), "kaoliniteClayBlock");

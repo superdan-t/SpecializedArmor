@@ -1,7 +1,7 @@
 package com.shrub.tileentity;
 
 import com.shrub.blocks.ModBlocks;
-import com.shrub.blocks.machine.BlockTileFoundryHatch;
+import com.shrub.blocks.machine.BlockFoundryHatch;
 import com.shrub.items.ModItems;
 import com.shrub.main.MachineRecipes;
 
@@ -113,7 +113,7 @@ public class TileEntityFoundry extends TileEntityMachineTemplate {
 			
 			if (flag != isHot()) {
 				flag1 = true;
-				BlockTileFoundryHatch.updateBlockState(isHot(), worldObj, xCoord, yCoord, zCoord);
+				BlockFoundryHatch.updateBlockState(isHot(), worldObj, xCoord, yCoord, zCoord);
 			}
 			updateLavaTank((int)Math.floor((double)heatLevel / 401D));
 			

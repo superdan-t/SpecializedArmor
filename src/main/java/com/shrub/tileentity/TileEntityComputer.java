@@ -10,7 +10,6 @@ public class TileEntityComputer extends TileEntityMachineTemplate {
 	public int usage;
 	public int capacity;
 	public int errorCode;
-	public int animationStage;
 	public boolean circuitLoaded;
 	
 	public TileEntityComputer() {
@@ -25,11 +24,6 @@ public class TileEntityComputer extends TileEntityMachineTemplate {
 		this.usage = slots[0].stackTagCompound.getInteger("usage");
 		this.capacity = slots[0].stackTagCompound.getInteger("capacity");
 		
-		if (worldObj.isRemote) {
-			animationStage++;
-			if (animationStage >= 20)
-				animationStage = 0;
-		}
 	}
 	
 	public boolean circuitLoaded() {
