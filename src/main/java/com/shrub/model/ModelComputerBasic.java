@@ -119,17 +119,17 @@ public class ModelComputerBasic extends ModelBase
     super.setRotationAngles(f, f1, f2, f3, f4, f5, entity);
   }
   
-  public void renderModel(float f5) {
-	    Computer.render(f5);
-	    Frame_Right.render(f5);
-	    Frame_Left.render(f5);
-	    Frame_Bottom.render(f5);
-	    Frame_Top.render(f5);
-	    Screen.render(f5);
-	    Monitor_Big.render(f5);
-	    Monitor_Sml.render(f5);
-	    Stand.render(f5);
-	    Stand_base.render(f5);
+  public void renderModel(float f, boolean on) {
+	  Computer.render(f);
+	  Frame_Right.render(f);
+	  Frame_Left.render(f);
+	  Frame_Bottom.render(f);
+	  Frame_Top.render(f);
+	  Screen.render(f);
+	  Monitor_Big.render(f);
+	  Monitor_Sml.render(f);
+	  Stand.render(f);
+	  Stand_base.render(f);
   }
 
 }

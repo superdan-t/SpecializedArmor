@@ -4,6 +4,7 @@ import org.lwjgl.opengl.GL11;
 
 import com.shrub.main.Main;
 import com.shrub.model.ModelComputerBasic;
+import com.shrub.tileentity.TileEntityComputer;
 
 import net.minecraft.client.renderer.tileentity.TileEntitySpecialRenderer;
 import net.minecraft.tileentity.TileEntity;
@@ -21,16 +22,43 @@ public class RenderComputerBasic extends TileEntitySpecialRenderer {
 
 	@Override
 	public void renderTileEntityAt(TileEntity tileEntity, double x, double y, double z, float f) {
+		
+		boolean circuitLoaded = false;
+		
+		if (tileEntity instanceof TileEntityComputer) {
+			TileEntityComputer computer = (TileEntityComputer)tileEntity;
+			circuitLoaded = computer.circuitLoaded;
+		}
+		
+		float rotation = 0;
+		float rotation2 = 1;
+		
+		switch (tileEntity.getBlockMetadata()) {
+		case 2:
+			rotation = 0F;
+			break;
+		case 3:
+			rotation = 1F;
+			rotation2 = 0F;
+			break;
+		case 4:
+			rotation = 1F;
+			break;
+		case 5:
+			rotation = -1F;
+			break;
+		
+		}
+		
 		GL11.glPushMatrix();
 		
-		GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
-		GL11.glRotatef(180, 0F, 0F, 1F);
+			GL11.glTranslatef((float) x + 0.5F, (float) y + 1.5F, (float) z + 0.5F);
+			GL11.glRotatef(180F, rotation, 0F, rotation2);
+			this.bindTexture(texture);
 		
-		this.bindTexture(texture);
-		
-		GL11.glPushMatrix();
-		this.model.renderModel(0.0625F);
-		GL11.glPopMatrix();
+			GL11.glPushMatrix();
+				this.model.renderModel(0.0625F, circuitLoaded);
+			GL11.glPopMatrix();
 		
 		GL11.glPopMatrix();
 	}

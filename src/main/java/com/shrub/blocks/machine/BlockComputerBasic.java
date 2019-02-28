@@ -1,10 +1,13 @@
 package com.shrub.blocks.machine;
 
 import com.shrub.main.Main;
+import com.shrub.tileentity.TileEntityComputer;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 
@@ -24,6 +27,11 @@ public class BlockComputerBasic extends BlockComputerTemplate {
 	public void onBlockAdded(World world, int x, int y, int z) {
 		super.onBlockAdded(world, x, y, z);
 		this.setDefaultDirection(world, x, y, z);
+	}
+	
+	@Override
+	public TileEntity createNewTileEntity(World p_149915_1_, int p_149915_2_) {
+		return new TileEntityComputer();
 	}
 	
 	@SideOnly(Side.CLIENT)

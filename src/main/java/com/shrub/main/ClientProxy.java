@@ -1,7 +1,7 @@
 package com.shrub.main;
 
 import com.shrub.render.RenderComputerBasic;
-import com.shrub.tileentity.TileEntityComputer;
+import com.shrub.tileentity.TileEntityComputerDesktop;
 
 import cpw.mods.fml.client.registry.ClientRegistry;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
@@ -17,7 +17,7 @@ public class ClientProxy extends CommonProxy {
         
         //ComputerBasic
         TileEntitySpecialRenderer render = new RenderComputerBasic();
-        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityComputer.class, render);
+        ClientRegistry.bindTileEntitySpecialRenderer(TileEntityComputerDesktop.class, render);
     }
 
     @Override
