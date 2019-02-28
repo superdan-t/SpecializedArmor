@@ -1,4 +1,4 @@
-package com.shrub.render;
+package com.shrub.render.block;
 
 import org.lwjgl.opengl.GL11;
 
@@ -33,21 +33,28 @@ public class RenderComputerBasic extends TileEntitySpecialRenderer {
 		float rotation = 0;
 		float rotation2 = 1;
 		
-		switch (tileEntity.getBlockMetadata()) {
-		case 2:
-			rotation = 0F;
-			break;
-		case 3:
-			rotation = 1F;
-			rotation2 = 0F;
-			break;
-		case 4:
-			rotation = 1F;
-			break;
-		case 5:
-			rotation = -1F;
-			break;
+		try {
+			switch (tileEntity.getBlockMetadata()) {
+			case 2:
+				rotation = 0F;
+				break;
+			case 3:
+				rotation = 1F;
+				rotation2 = 0F;
+				break;
+			case 4:
+				rotation = 1F;
+				break;
+			case 5:
+				rotation = -1F;
+				break;
 		
+			}
+		
+		} catch (Exception e) {
+			//Because the metadata will be null if rendering from inventory
+			rotation = 1;
+			rotation2 = 0;
 		}
 		
 		GL11.glPushMatrix();
