@@ -3,6 +3,8 @@ package com.shrub.tileentity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ISidedInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntity;
 
 public abstract class TileEntityMachineTemplate extends TileEntity implements ISidedInventory {
@@ -119,6 +121,43 @@ public abstract class TileEntityMachineTemplate extends TileEntity implements IS
 	@Override
 	public boolean canExtractItem(int p_102008_1_, ItemStack p_102008_2_, int p_102008_3_) {
 		return true;
+	}
+	
+	@Override
+	public void readFromNBT(NBTTagCompound nbt) {
+		super.readFromNBT(nbt);
+
+		NBTTagList list = nbt.getTagList("Item", 10);
+		this.slots = new ItemStack[this.getSizeInventory()];
+
+		for (int i = 0; i < list.tagCount(); i++) {
+			NBTTagCompound compound = (NBTTagCompound) list.getCompoundTagAt(i);
+			byte b = compound.getByte("Slot");
+
+			if (b >= 0 && b < this.slots.length) {
+				this.slots[b] = ItemStack.loadItemStackFromNBT(compound);
+			}
+		}
+
+	}
+
+	@Override
+	public void writeToNBT(NBTTagCompound nbt) {
+		super.writeToNBT(nbt);
+
+		NBTTagList list = new NBTTagList();
+
+		for (int i = 0; i < this.slots.length; i++) {
+			if (this.slots[i] != null) {
+				NBTTagCompound compound = new NBTTagCompound();
+				compound.setByte("Slot", (byte) i);
+				this.slots[i].writeToNBT(compound);
+				list.appendTag(compound);
+			}
+		}
+
+		nbt.setTag("Item", list);
+
 	}
 
 }

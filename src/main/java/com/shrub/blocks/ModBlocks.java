@@ -6,12 +6,23 @@ import com.shrub.blocks.generic.BlockKaolinite;
 import com.shrub.blocks.generic.BlockLavaTank;
 import com.shrub.blocks.generic.BlockMachineComponent;
 import com.shrub.blocks.generic.BlockOre;
-import com.shrub.blocks.machine.*;
-import com.shrub.info.*;
+import com.shrub.blocks.machine.BlockComputerBasic;
+import com.shrub.blocks.machine.BlockComputerDesktop;
+import com.shrub.blocks.machine.BlockComputerModern;
+import com.shrub.blocks.machine.BlockEnergyTest;
+import com.shrub.blocks.machine.BlockFoundryHatch;
+import com.shrub.blocks.machine.BlockVacuumArcFurnace;
+import com.shrub.info.MoissaniteInfo;
+import com.shrub.info.PentlanditeInfo;
+import com.shrub.info.TantalumInfo;
+import com.shrub.info.VacuumArcFurnaceInformation;
+import com.shrub.info.ZirconInfo;
 import com.shrub.items.itemblocks.ItemChimneyBlock;
 import com.shrub.items.itemblocks.ItemLavaTankBlock;
 import com.shrub.main.Main;
 import com.shrub.tileentity.TileEntityComputer;
+import com.shrub.tileentity.TileEntityComputerDesktop;
+import com.shrub.tileentity.TileEntityComputerModern;
 import com.shrub.tileentity.TileEntityEnergyTest;
 import com.shrub.tileentity.TileEntityFoundry;
 
@@ -28,6 +39,7 @@ public final class ModBlocks {
 	public static Block chimney;
 	public static Block computerBasic;
 	public static Block computerDesktop;
+	public static Block computerModern;
 	public static Block demoTile;
 	public static Block energyTest;
 	public static Block foundryCase;
@@ -61,6 +73,7 @@ public final class ModBlocks {
 //		GameRegistry.registerBlock(coolFurnaceActive = new BlockCoolFurnace(true), "coolFurnaceActive");
 		GameRegistry.registerBlock(computerBasic = new BlockComputerBasic(), "computerBasic");
 		GameRegistry.registerBlock(computerDesktop = new BlockComputerDesktop(), "computerDesktop");
+		GameRegistry.registerBlock(computerModern = new BlockComputerModern(), "computerModern");
 		GameRegistry.registerBlock(chimney = new BlockChimney("brick"), ItemChimneyBlock.class, chimney.getUnlocalizedName().substring(5));
 //		GameRegistry.registerBlock(demoTile = new BlockTileBomb("demoTile"), "demoTile");
 		GameRegistry.registerBlock(foundryCase = new BlockMachineComponent("foundryCase", Material.iron), "foundryCase");
@@ -79,14 +92,16 @@ public final class ModBlocks {
 //		GameRegistry.registerBlock(smelteryCore = new BlockTileSmeltery("smelteryCore"), "smelteryCore");
 		GameRegistry.registerBlock(tantalumOre = new BlockOre("tantalumOre", Material.rock, 2), TantalumInfo.class, "tantalumOre");
 		GameRegistry.registerBlock(energyTest = new BlockEnergyTest(), "energyTest");
-//		GameRegistry.registerBlock(vacuumArcFurnace_off = new BlockVacuumArcFurnace(false), VacuumArcFurnaceInformation.class, "vacuumArcFurnace_off");
-//		GameRegistry.registerBlock(vacuumArcFurnace_on = new BlockVacuumArcFurnace(true), "vacuumArcFurnace_on");
+		GameRegistry.registerBlock(vacuumArcFurnace_off = new BlockVacuumArcFurnace(false), VacuumArcFurnaceInformation.class, "vacuumArcFurnace_off");
+		GameRegistry.registerBlock(vacuumArcFurnace_on = new BlockVacuumArcFurnace(true), "vacuumArcFurnace_on");
 		GameRegistry.registerBlock(zirconOre = new BlockOre("zirconOre", Material.rock, 2), ZirconInfo.class, "zirconOre");
 		
 	}
 	
 	public static final void initTileEntities() {
 		GameRegistry.registerTileEntity(TileEntityComputer.class, Main.modID + ":computer");
+		GameRegistry.registerTileEntity(TileEntityComputerDesktop.class, Main.modID + ":computerDesktop");
+		GameRegistry.registerTileEntity(TileEntityComputerModern.class, Main.modID + ":computerModern");
 		GameRegistry.registerTileEntity(TileEntityFoundry.class, Main.modID + ":foundry");
 		GameRegistry.registerTileEntity(TileEntityEnergyTest.class, Main.modID + ":energyTest");
 	}

@@ -18,7 +18,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.ChatComponentText;
 
 public class TileEntityFoundry extends TileEntityMachineTemplate {
@@ -510,7 +509,7 @@ public class TileEntityFoundry extends TileEntityMachineTemplate {
 	@Override
 	public void readFromNBT(NBTTagCompound nbt) {
 		super.readFromNBT(nbt);
-
+		/*
 		NBTTagList list = nbt.getTagList("Item", 10);
 		this.slots = new ItemStack[this.getSizeInventory()];
 
@@ -522,7 +521,7 @@ public class TileEntityFoundry extends TileEntityMachineTemplate {
 				this.slots[b] = ItemStack.loadItemStackFromNBT(compound);
 			}
 		}
-
+*/
 		this.burnTime = (int) nbt.getShort("BurnTime");
 		this.heatLevel = (int) nbt.getShort("HeatLevel");
 		this.progress = (int) nbt.getShort("Progress");
@@ -541,7 +540,7 @@ public class TileEntityFoundry extends TileEntityMachineTemplate {
 		nbt.setShort("HeatLevel", (short) this.heatLevel);
 		nbt.setShort("Progress", (short) this.progress);
 		nbt.setShort("Pressure", (short) this.pressure);
-
+/*
 		NBTTagList list = new NBTTagList();
 
 		for (int i = 0; i < this.slots.length; i++) {
@@ -554,7 +553,7 @@ public class TileEntityFoundry extends TileEntityMachineTemplate {
 		}
 
 		nbt.setTag("Item", list);
-
+*/
 		if (this.hasCustomInventoryName()) {
 			nbt.setString("CustomName", TileEntityFoundry.localizedName);
 		}

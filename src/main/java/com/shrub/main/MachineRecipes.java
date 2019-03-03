@@ -62,7 +62,12 @@ public class MachineRecipes {
 	
 	// Foundry Recipes
 	
-	//Get the ID number of the smelting recipe currently in the furnace.
+	/**Get the ID number of the smelting recipe currently in the furnace.
+	 * 
+	 * @param inputs
+	 * @param primer
+	 * @return
+	 */
 	public static int getFoundryRecipeID(ItemStack[] inputs, ItemStack primer) {
 		if ((compareItems(inputs[0], ModItems.zirconiumCarbide) && compareItems(inputs[1], ModItems.zirconiumCarbide) && compareItems(inputs[2], ModItems.zirconiumCarbide) ||
 				compareItems(inputs[3], ModItems.zirconiumCarbide) && compareItems(inputs[4], ModItems.zirconiumCarbide) && compareItems(inputs[5], ModItems.zirconiumCarbide) ||
@@ -163,6 +168,25 @@ public class MachineRecipes {
 			return results;
 		case 7:
 			results[0] = new ItemStack(ModItems.zirconiumToolTip, 1, 6);
+			return results;
+		}
+		return null;
+	}
+	
+	//Vacuum Arc Furnace Recipes
+	
+	public static int getVacuumArcFurnaceRecipeID(ItemStack[] inputs) {
+		if (countSlotsOfItem(inputs, 0, inputs.length - 1, ModItems.zirconIngot, true) == 1) {
+			return 1;
+		}
+		return 0;
+	}
+	
+	public static ItemStack[] getVacuumArcFurnaceResult(int recipeID) {
+		ItemStack[] results = new ItemStack[2];
+		switch (recipeID) {
+		case 1:
+			results[0] = new ItemStack(ModItems.zirconiumCarbide, 2);
 			return results;
 		}
 		return null;

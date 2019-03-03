@@ -10,7 +10,7 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 
-public class ModelComputerBasic extends ModelBase
+public class ModelComputerDesktop extends ModelBase
 {
   //fields
     ModelRenderer Computer;
@@ -24,7 +24,7 @@ public class ModelComputerBasic extends ModelBase
     ModelRenderer Stand;
     ModelRenderer Stand_base;
   
-  public ModelComputerBasic()
+  public ModelComputerDesktop()
   {
     textureWidth = 64;
     textureHeight = 32;

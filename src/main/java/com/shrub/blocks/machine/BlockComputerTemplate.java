@@ -1,6 +1,7 @@
 package com.shrub.blocks.machine;
 
 import com.shrub.blocks.ModBlocks;
+import com.shrub.items.ModItems;
 import com.shrub.main.Main;
 import com.shrub.tileentity.TileEntityComputer;
 import com.shrub.tileentity.TileEntityFoundry;
@@ -29,15 +30,35 @@ public abstract class BlockComputerTemplate extends BlockContainer {
 	
 	@Override
 	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float sideX, float sideY, float sideZ) {
-		if (world.isRemote)
-			return true;
-		else if (player.isSneaking())
-			return false;
 		
 		TileEntityComputer tile = (TileEntityComputer)world.getTileEntity(x, y, z);
 		
-		if (tile.isUseableByPlayer(player))
+		if (player.isSneaking() && tile.circuitLoaded) {
+			if (!world.isRemote) {
+				
+				tile.ejectCircuit(player);
+
+			} else {
+				tile.slots[0] = null;
+			}
+			return true;
+		} else if (player.isSneaking()) {
+			return false;
+		}
+		
+		
+		if (!tile.isUseableByPlayer(player)) {
+			return false;
+		}
+		
+		if (player.inventory.getCurrentItem() != null && player.inventory.getCurrentItem().getItem() == ModItems.controlChip && tile.slots[0] == null) {
+			tile.slots[0] = player.inventory.getCurrentItem();
+			if (!world.isRemote) {
+				player.inventory.setInventorySlotContents(player.inventory.currentItem, null);
+			}
+		} else if (!world.isRemote) {
 			FMLNetworkHandler.openGui(player, Main.instance, Main.guiIDComputer, world, x, y, z);
+		}
 
 		
 		return true;
@@ -88,5 +109,12 @@ public abstract class BlockComputerTemplate extends BlockContainer {
 			((TileEntityFoundry)world.getTileEntity(x, y, z)).setGUIDisplayName(itemstack.getDisplayName());
 		
 	}
+	
+    public void breakBlock(World world, int x, int y, int z, Block oldBlock, int oldMetadata) {
+    	TileEntityComputer computer = (TileEntityComputer) world.getTileEntity(x, y, z);
+    	if (computer != null) {
+    		computer.ejectCircuit();
+    	}
+    }
 
 }

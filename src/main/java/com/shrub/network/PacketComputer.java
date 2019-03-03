@@ -102,6 +102,8 @@ public class PacketComputer implements IMessage {
 			return 3;
 		else if (variable == "plowSize")
 			return 4;
+		else if (variable == "eject")
+			return 5;
 		else
 			return 0;
 	}
@@ -120,7 +122,9 @@ public class PacketComputer implements IMessage {
 					
 					TileEntityComputer computer = (TileEntityComputer) tileEntity;
 					
-					if (message.func == 0)
+					if (message.variable == 5)
+						computer.ejectCircuit(ctx.getServerHandler().playerEntity);
+					else if (message.func == 0)
 						computer.programValue(message.variable, message.newValue);
 					else if (message.func == 1)
 						computer.removeValue(message.variable);

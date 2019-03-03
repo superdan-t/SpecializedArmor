@@ -2,7 +2,7 @@ package com.shrub.inventory.gui;
 
 import org.lwjgl.opengl.GL11;
 
-import com.shrub.inventory.container.ContainerComputer;
+import com.shrub.inventory.container.ContainerComputerOld;
 import com.shrub.main.Main;
 import com.shrub.network.ModPacketHandler;
 import com.shrub.network.PacketComputer;
@@ -17,9 +17,9 @@ import net.minecraft.client.resources.I18n;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
 
-public class GuiComputer extends GuiContainer {
-	
-	public static final ResourceLocation texture = new ResourceLocation(Main.modID + ":textures/gui/GUIComputer_New.png");
+public class GuiComputerOld extends GuiContainer {
+
+	public static final ResourceLocation texture = new ResourceLocation(Main.modID + ":textures/gui/GUIComputer.png");
 	
 	private TileEntityComputer computer;
 	
@@ -33,23 +33,15 @@ public class GuiComputer extends GuiContainer {
 	
 	private String logMessage = "";
 
-	public GuiComputer(InventoryPlayer inventory, TileEntityComputer entity) {
-		super(new ContainerComputer(inventory, entity));
+	public GuiComputerOld(InventoryPlayer inventoryPlayer, TileEntityComputer entity) {
+		super(new ContainerComputerOld(inventoryPlayer, entity));
 		computer = entity;
-		xSize = 176;
-		ySize = 126;
+		
+		this.xSize = 176;
+		this.ySize = 206;
+		
 	}
 	
-	@SuppressWarnings("unchecked")
-	public void initGui() {
-		super.initGui();
-		this.inventorySlots.getSlot(0).xDisplayPosition = guiLeft - 2 * guiLeft - 16;
-		GuiButtonCustom guiButton = new GuiButtonCustom(17, guiLeft + 40, guiTop + 103, 13, 14, "");
-		guiButton.textureVisible = false;
-		guiButton.visible = true;
-		buttonList.add(guiButton);
-	}
-
 	public void updateScreen() {
 		animationStage++;
 		if (animationStage >= 20)
@@ -58,7 +50,10 @@ public class GuiComputer extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerForegroundLayer(int par1, int par2) {
+		//String name = this.computer.hasCustomInventoryName() ? this.computer.getInventoryName() : I18n.format(this.computer.getInventoryName());
 		
+		//this.fontRendererObj.drawString(name, this.xSize / 2 - this.fontRendererObj.getStringWidth(name) / 2, 6, 4210752);
+	
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -162,9 +157,6 @@ public class GuiComputer extends GuiContainer {
 			break;
 		case 16:
 			removeComputerValueGui("plowSize");
-			break;
-		case 17:
-			setComputerValue("eject", 0);
 			break;
 		}
 	}
