@@ -1,5 +1,6 @@
 package com.shrub.main;
 
+import com.shrub.blocks.ModBlocks;
 import com.shrub.items.ModItems;
 
 import net.minecraft.item.Item;
@@ -176,7 +177,7 @@ public class MachineRecipes {
 	//Vacuum Arc Furnace Recipes
 	
 	public static int getVacuumArcFurnaceRecipeID(ItemStack[] inputs) {
-		if (countSlotsOfItem(inputs, 0, inputs.length - 1, ModItems.zirconIngot, true) == 1) {
+		if (countSlotsOfItem(inputs, 0, 1, ModItems.zirconIngot, true) == 1 || countSlotsOfItem(inputs, 0, 1, Item.getItemFromBlock(ModBlocks.zirconOre), true) == 1) {
 			return 1;
 		}
 		return 0;
@@ -186,7 +187,8 @@ public class MachineRecipes {
 		ItemStack[] results = new ItemStack[2];
 		switch (recipeID) {
 		case 1:
-			results[0] = new ItemStack(ModItems.zirconiumCarbide, 2);
+			results[0] = new ItemStack(ModItems.zirconiumCarbide, 4);
+			results[1] = new ItemStack(ModItems.hafniumCarbide, 1);
 			return results;
 		}
 		return null;

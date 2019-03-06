@@ -2,9 +2,11 @@ package com.shrub.inventory.gui;
 
 import com.shrub.inventory.container.ContainerComputer;
 import com.shrub.inventory.container.ContainerFoundry;
+import com.shrub.inventory.container.ContainerVacuumArcFurnace;
 import com.shrub.main.Main;
 import com.shrub.tileentity.TileEntityComputer;
 import com.shrub.tileentity.TileEntityFoundry;
+import com.shrub.tileentity.TileEntityVacuumArcFurnace;
 
 import cpw.mods.fml.common.network.IGuiHandler;
 import net.minecraft.entity.player.EntityPlayer;
@@ -27,6 +29,10 @@ public class GuiHandler implements IGuiHandler {
 				if (entity instanceof TileEntityComputer)
 					return new ContainerComputer(player.inventory, (TileEntityComputer) entity);
 				return null;
+			case Main.guiIDVacuumArcFurnace:
+				if (entity instanceof TileEntityVacuumArcFurnace)
+					return new ContainerVacuumArcFurnace(player.inventory, (TileEntityVacuumArcFurnace) entity);
+				return null;
 			}
 		
 		return null;		
@@ -45,6 +51,9 @@ public class GuiHandler implements IGuiHandler {
 			case Main.guiIDComputer:
 				if (entity instanceof TileEntityComputer)
 					return new GuiComputer(player.inventory, (TileEntityComputer) entity);
+			case Main.guiIDVacuumArcFurnace:
+				if (entity instanceof TileEntityVacuumArcFurnace)
+					return new GuiVacuumArcFurnace(player.inventory, (TileEntityVacuumArcFurnace) entity);
 			}
 			
 		return null;

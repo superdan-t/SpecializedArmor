@@ -25,6 +25,7 @@ import com.shrub.tileentity.TileEntityComputerDesktop;
 import com.shrub.tileentity.TileEntityComputerModern;
 import com.shrub.tileentity.TileEntityEnergyTest;
 import com.shrub.tileentity.TileEntityFoundry;
+import com.shrub.tileentity.TileEntityVacuumArcFurnace;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -104,6 +105,7 @@ public final class ModBlocks {
 		GameRegistry.registerTileEntity(TileEntityComputerModern.class, Main.modID + ":computerModern");
 		GameRegistry.registerTileEntity(TileEntityFoundry.class, Main.modID + ":foundry");
 		GameRegistry.registerTileEntity(TileEntityEnergyTest.class, Main.modID + ":energyTest");
+		GameRegistry.registerTileEntity(TileEntityVacuumArcFurnace.class, Main.modID + ":vacuumArcFurnace");
 	}
 
 }

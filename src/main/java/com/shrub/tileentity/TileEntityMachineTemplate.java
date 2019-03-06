@@ -72,7 +72,7 @@ public abstract class TileEntityMachineTemplate extends TileEntity implements IS
 
 	@Override
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.localizedName : "container.foundry";
+		return this.hasCustomInventoryName() ? this.localizedName : "container.vacuumArcFurnace";
 	}
 
 	@Override

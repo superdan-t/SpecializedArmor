@@ -18,6 +18,7 @@ public class Main {
     
     public static final int guiIDFoundry = 0;
     public static final int guiIDComputer = 1;
+    public static final int guiIDVacuumArcFurnace = 2;
     
     @Instance
     public static Main instance = new Main();

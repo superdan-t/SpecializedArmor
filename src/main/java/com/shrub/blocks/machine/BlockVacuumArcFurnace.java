@@ -5,6 +5,7 @@ import com.shrub.main.Main;
 import com.shrub.tileentity.TileEntityFoundry;
 import com.shrub.tileentity.TileEntityVacuumArcFurnace;
 
+import cpw.mods.fml.common.network.internal.FMLNetworkHandler;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
@@ -12,6 +13,7 @@ import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
@@ -66,6 +68,20 @@ public class BlockVacuumArcFurnace extends BlockContainer {
 		} else {
 			return this.sides;
 		}
+	}
+	
+	@Override
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int metadata, float sideX, float sideY, float sizeZ) {
+		if (world.isRemote) {
+			return true;
+		} else if (player.isSneaking()) {
+			return false;
+		}
+		
+		FMLNetworkHandler.openGui(player, Main.instance, Main.guiIDVacuumArcFurnace, world, x, y, z);
+		
+		return true;
+		
 	}
 
 	@Override
