@@ -6,3 +6,5 @@ Vanilla armors and tools are provided in a linear fashion. Each one offeres bett
 At the time, the mod really doesn't have much. However, I have figured out the fundamental principles of Minecraft mod creation and have developed a base that can be used to add the additional items needed.
 
 The mod's progress can be viewed in a more organized format on [Trello](https://trello.com/b/QqzaN3IS/random-shrubs-specialized-armor).
+
+3/25/19: Yes, this is still a thing. I was just statisically significantly busy for the past two weeks and will be returning to a business as usual level here.
