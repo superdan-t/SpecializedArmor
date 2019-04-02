@@ -39,18 +39,26 @@ public class TileEntityVacuumArcFurnace extends TileEntityMachineTemplate implem
 		
 		if (recipeID != 0) {
 			if (canProcess(recipeID)) {
-				progress++;
-				if (progress >= 300) {
-					addResults(recipeID);
-					reduceGrid();
-					progress = 0;
-					flag1 = true;
+				if (storage.getEnergyStored() > 0) {
+					progress++;
+					if (progress >= 300) {
+						addResults(recipeID);
+						reduceGrid();
+						progress = 0;
+						flag1 = true;
+					}
+				} else if (progress > 0) {
+					progress--;
 				}
 			} else {
 				progress = 0;
 			}
 		} else {
 			progress = 0;
+		}
+		
+		if (progress > 0) {
+			storage.extractEnergy(25, false);
 		}
 		
 		if (flag1) {
