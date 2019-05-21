@@ -1,5 +1,6 @@
 package com.shrub.tileentity;
 
+import com.shrub.items.ModItems;
 import com.shrub.main.MachineRecipes;
 
 import cofh.api.energy.EnergyStorage;
@@ -34,6 +35,10 @@ public class TileEntityVacuumArcFurnace extends TileEntityMachineTemplate implem
 		}
 		
 		boolean flag1 = false;
+		
+		if (getStackInSlot(1) != null && getStackInSlot(1).getItem() != null && getStackInSlot(1).getItem() == ModItems.advancedStick) {
+			decrStackSize(1, 1);
+		}
 		
 		int recipeID = MachineRecipes.getVacuumArcFurnaceRecipeID(slots);
 		
