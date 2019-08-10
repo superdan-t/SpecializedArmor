@@ -12,3 +12,5 @@ The mod's progress can be viewed in a more organized format on [Trello](https://
 4/29/19: GAHH It's been over a month but I still intend on getting back to this. It is AP exam time and I'm working on some other personal projects. :)
 
 5/17/19: Last AP exam was yesterday. I felt mostly well about all of them and believe that I at least passed all five. I will be resuming work on this project now.
+
+8/10/19: Due to the long-term support promises of 1.12.2 and the aging of 1.7.10, this mod is currently being developed for 1.12.2. The 1.7.10 version will not be completed. Not that anyone was waiting for it.
