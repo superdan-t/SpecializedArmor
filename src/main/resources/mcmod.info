@@ -1,0 +1,16 @@
+[
+{
+  "modid": "sdspar",
+  "name": "SuperDan's Specialized Armor",
+  "description": "The main goal of this mod is to amplify the role of armor in Minecraft by making pieces customizable with unique add-ons. It will match the theme of an industrial mod by utilizing machines, computers, and energy.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://sdservers.cc/spar",
+  "updateUrl": "",
+  "authorList": ["superdan_t"],
+  "credits": "Daniel Tierney (superdan_t)",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
