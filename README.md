@@ -1,16 +1,9 @@
-# Specialized Armor
-While still titled Specialized Armor, this mod will offer much more than that (and will be retitled whenever a superior name is discovered.)
-
-Vanilla armors and tools are provided in a linear fashion. Each one offeres better performance, but there is nothing special about each upgrade, and some materials are thoroughly worthless (like gold, for instance.) This mod attempts to change that. By making new, advanced machines, the player can customize tools and armors with unique power-ups and intensities. SPAR also adds new materials to build armors and tools, each with their own strengths and weaknesses.
-
-At the time, the mod really doesn't have much. However, I have figured out the fundamental principles of Minecraft mod creation and have developed a base that can be used to add the additional items needed.
-
-The mod's progress can be viewed in a more organized format on [Trello](https://trello.com/b/QqzaN3IS/random-shrubs-specialized-armor).
-
-3/25/19: Yes, this is still a thing. I was just statisically significantly busy for the past two weeks and will be returning to a business as usual level here.
-
-4/29/19: GAHH It's been over a month but I still intend on getting back to this. It is AP exam time and I'm working on some other personal projects. :)
-
-5/17/19: Last AP exam was yesterday. I felt mostly well about all of them and believe that I at least passed all five. I will be resuming work on this project now.
-
-8/10/19: Due to the long-term support promises of 1.12.2 and the aging of 1.7.10, this mod is currently being developed for 1.12.2. The 1.7.10 version will not be completed. Not that anyone was waiting for it.
+# Origination of Idea
+I’ve played a number of industrial/exploration style modpacks and, despite the super-advanced mods that seem to be able to do anything, the armors that they add remain rather plain and boring. The vanilla enchantments get repetitive, and there is always that debate over whether armor added by this mod is better than that one. In the end, most of the armor from mods that I have sampled only offers various levels of protection and durability. Nothing pushes the limits or causes you to think twice after equipping it. If we are wrapping people in LCD screens and cameras to make invisibility armor in real life, why can’t a game with enchantments, potions, magic, and dozens of other industrial mods accomplish the same effect?
+The line of thought above was prompted by the struggle of walking more than 10 blocks in the nether on one of my old modpacks. We had Lycanite’s Mobs installed, along with the difficulty cranked up, and it made the nether the perfect representation of the Hell that it is supposed to be. We wanted fire protecting armor to help us out, but despite having 95 mods, there wasn’t anything available to make the cut. That’s when I took the matter into my own hands.
+Originally, I made a suit of protective gear that a fireman would wear. It offered complete fire protection in exchange for low damage protection overall. Crafting it was also extremely ridiculous and we never managed to obtain any.
+Then, I decided to revive the idea but in a more polished, professional format that would appease the rant that appeared in the first paragraph and match our industrial/exploration modpack.
+# Fairness Guidelines
+All of the features in this mod are intended to feel balanced with a power progression to match game progress. Due to the diversity of difficulty among the modpacks out there, I will probably release two versions of this mod, with one being standard (perfect for a modpack with something like Lycanite’s Mobs in it) and the other nerfed (intended for a more lightweight modpack).
+# Purpose of Features
+The main goal of this mod is to amplify the role of armor in Minecraft by making pieces customizable with unique add-ons. It will match the theme of an industrial mod by utilizing machines, computers, and energy.
