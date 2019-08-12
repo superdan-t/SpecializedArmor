@@ -7,6 +7,7 @@
 /eclipse/
 /gradle/
 /logs/
+/run/
 /mods/
 /resourcepacks/
 /saves/
@@ -18,3 +19,5 @@ usernamecache.json
 *.log
 *.project
 *.txt
+*.launch
+*.properties
