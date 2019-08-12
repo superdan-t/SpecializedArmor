@@ -16,6 +16,16 @@ public class ModelRegistrationHandler {
 	@SubscribeEvent
 	public static void registerModels(ModelRegistryEvent event) {
 		registerModel(ModItems.advanced_stick, 0);
+		registerModel(ModItems.ceramic_brick, 0);
+		registerModel(ModItems.hafnium_carbide, 0);
+		registerModel(ModItems.hafnium_oxide, 0);
+		registerModel(ModItems.kaolinite, 0);
+		registerModel(ModItems.moissanite, 0);
+		registerModel(ModItems.silicon_carbide, 0);
+		registerModel(ModItems.tantalum_ingot, 0);
+		registerModel(ModItems.zircon, 0);
+		registerModel(ModItems.zirconium_carbide, 0);
+		registerModel(ModItems.zirconium_dioxide, 0);
 	}
 
 	private static void registerModel(Item item, int meta) {

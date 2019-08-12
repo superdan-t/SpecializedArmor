@@ -11,16 +11,18 @@ import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
 @ObjectHolder(SpecializedArmor.MODID)
 public class ModItems {
 	
-	public static Item advanced_stick;
-	public static Item ceramic_brick;
-	public static Item graphene;
-	public static Item kaolinite;
-	public static Item moissanite;
-	public static Item silicon_carbide;
-	public static Item silicon_oxide;
-	public static Item zircon;
-	public static Item zirconium_carbide;
-	public static Item zirconium_oxide;
+	public static final Item advanced_stick = null;
+	public static final Item ceramic_brick = null;
+	//public static final Item graphene = null;
+	public static final Item hafnium_oxide = null;
+	public static final Item hafnium_carbide = null;
+	public static final Item kaolinite = null;
+	public static final Item moissanite = null;
+	public static final Item silicon_carbide = null;
+	public static final Item tantalum_ingot = null;
+	public static final Item zircon = null;
+	public static final Item zirconium_carbide = null;
+	public static final Item zirconium_dioxide = null;
 
 	@EventBusSubscriber(modid = SpecializedArmor.MODID)
 	public static class RegistrationHandler {
@@ -28,23 +30,25 @@ public class ModItems {
 		@SubscribeEvent
 		public static void registerItems(Register<Item> event) {
 			final Item[] items = {
-					getItemToRegister(new Item(), "advanced_stick", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "ceramic_brick", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "graphene", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "kaolinite", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "moissanite", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "silicon_carbide", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "silicon_oxide", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "zircon", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "zirconium_carbide", CreativeTabs.MISC),
-					getItemToRegister(new Item(), "zirconium_oxide", CreativeTabs.MISC)
+					getItemToRegister("advanced_stick", CreativeTabs.MISC),
+					getItemToRegister("ceramic_brick", CreativeTabs.MISC),
+					//getItemToRegister("graphene", CreativeTabs.MISC),
+					getItemToRegister("hafnium_oxide", CreativeTabs.MISC),
+					getItemToRegister("hafnium_carbide", CreativeTabs.MISC),
+					getItemToRegister("kaolinite", CreativeTabs.MISC),
+					getItemToRegister("moissanite", CreativeTabs.MISC),
+					getItemToRegister("silicon_carbide", CreativeTabs.MISC),
+					getItemToRegister("tantalum_ingot", CreativeTabs.MISC),
+					getItemToRegister("zircon", CreativeTabs.MISC),
+					getItemToRegister("zirconium_carbide", CreativeTabs.MISC),
+					getItemToRegister("zirconium_dioxide", CreativeTabs.MISC)
 			};
 
 			event.getRegistry().registerAll(items);
 		}
 		
-		private static Item getItemToRegister(Item item, String name, CreativeTabs tab) {
-			return item.setRegistryName(SpecializedArmor.MODID, name).setTranslationKey(SpecializedArmor.MODID + "." + name).setCreativeTab(tab);
+		private static Item getItemToRegister(String name, CreativeTabs tab) {
+			return new Item().setRegistryName(SpecializedArmor.MODID, name).setTranslationKey(SpecializedArmor.MODID + "." + name).setCreativeTab(tab);
 		}
 		
 	}
