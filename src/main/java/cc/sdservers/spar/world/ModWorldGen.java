@@ -5,6 +5,7 @@ import java.util.Random;
 import com.google.common.base.Predicate;
 
 import cc.sdservers.spar.block.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
 import net.minecraft.init.Blocks;
@@ -23,13 +24,13 @@ public class ModWorldGen implements IWorldGenerator {
 		case -1:
 			//Nether
 
-			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 30, 4, BlockMatcher.forBlock(Blocks.NETHERRACK));
-			runGenerator(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 0, 100, 10, BlockMatcher.forBlock(Blocks.NETHERRACK));
+			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 30, 4, Blocks.NETHERRACK);
+			runGenerator(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 0, 100, 10, Blocks.NETHERRACK);
 			break;
 		case 0:
 			//Overworld
-			runGenerator(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, 10, 50, 100, 20, BlockMatcher.forBlock(Blocks.DIRT));
-			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 30, 8, BlockMatcher.forBlock(Blocks.STONE));
+			runGenerator(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, 10, 50, 100, 20, Blocks.DIRT);
+			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 30, 8, Blocks.STONE);
 			break;
 		case 1:
 			//End
@@ -38,10 +39,15 @@ public class ModWorldGen implements IWorldGenerator {
 
 	}
 	
-	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Predicate<IBlockState> blockToReplace) {
-		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight)
-			
-			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
+	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Block blockToReplace) {
+		
+		if (minHeight > maxHeight) {	
+			int swap = minHeight;
+			minHeight = maxHeight;
+			maxHeight = swap;
+		}
+		if (minHeight < 0) minHeight = 0;
+		if (maxHeight > 255) maxHeight = 255;
 		
 		int heightDiff = maxHeight - minHeight + 1;
 		for (int i = 0; i < chancesToSpawn; i++) {
@@ -49,7 +55,7 @@ public class ModWorldGen implements IWorldGenerator {
 			int y = minHeight + rand.nextInt(heightDiff);
 			int z = chunk_Z * 16 + rand.nextInt(16);
 			BlockPos pos = new BlockPos(x, y, z);
-			WorldGenMinable generator = new WorldGenMinable(block, size, blockToReplace);
+			WorldGenMinable generator = new WorldGenMinable(block, size, BlockMatcher.forBlock(blockToReplace));
 			generator.generate(world, rand, pos);
 		}
 	}
