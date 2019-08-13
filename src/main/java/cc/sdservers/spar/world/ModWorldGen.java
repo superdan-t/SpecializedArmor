@@ -23,13 +23,13 @@ public class ModWorldGen implements IWorldGenerator {
 		case -1:
 			//Nether
 
-			generate(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 30, 4, BlockMatcher.forBlock(Blocks.NETHERRACK));
-			generate(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 0, 100, 10, BlockMatcher.forBlock(Blocks.NETHERRACK));
+			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 30, 4, BlockMatcher.forBlock(Blocks.NETHERRACK));
+			runGenerator(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 0, 100, 10, BlockMatcher.forBlock(Blocks.NETHERRACK));
 			break;
 		case 0:
 			//Overworld
-			generate(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, 10, 50, 100, 20, BlockMatcher.forBlock(Blocks.DIRT));
-			generate(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 30, 8, BlockMatcher.forBlock(Blocks.STONE));
+			runGenerator(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, 10, 50, 100, 20, BlockMatcher.forBlock(Blocks.DIRT));
+			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 30, 8, BlockMatcher.forBlock(Blocks.STONE));
 			break;
 		case 1:
 			//End
@@ -38,7 +38,7 @@ public class ModWorldGen implements IWorldGenerator {
 
 	}
 	
-	private void generate(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Predicate<IBlockState> blockToReplace) {
+	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Predicate<IBlockState> blockToReplace) {
 		if (minHeight < 0 || maxHeight > 256 || minHeight > maxHeight)
 			
 			throw new IllegalArgumentException("Illegal Height Arguments for WorldGenerator");
