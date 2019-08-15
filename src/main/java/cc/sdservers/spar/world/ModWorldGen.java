@@ -5,6 +5,7 @@ import java.util.Random;
 import com.google.common.base.Predicate;
 
 import cc.sdservers.spar.block.ModBlocks;
+import cc.sdservers.spar.util.ModConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -15,6 +16,7 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
+import scala.Int;
 
 public class ModWorldGen implements IWorldGenerator {
 
@@ -23,14 +25,19 @@ public class ModWorldGen implements IWorldGenerator {
 		switch (world.provider.getDimension()) {
 		case -1:
 			//Nether
-
-			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 30, 4, Blocks.NETHERRACK);
+			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 47, 4, Blocks.NETHERRACK);
+			runGenerator(ModBlocks.NETHER_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 100, 2, Blocks.NETHERRACK);
 			runGenerator(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 0, 100, 10, Blocks.NETHERRACK);
 			break;
 		case 0:
 			//Overworld
+			runGenerator(ModBlocks.ALUMINUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 20, 48, 9, Blocks.STONE);
+			runGenerator(ModBlocks.COPPER_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 12, 10, 45, 8, Blocks.STONE);
 			runGenerator(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, 10, 50, 100, 20, Blocks.DIRT);
-			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 30, 8, Blocks.STONE);
+			runGenerator(ModBlocks.LEAD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 10, 10, 45, 8, Blocks.STONE);
+			runGenerator(ModBlocks.TIN_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 9, 20, 48, 8, Blocks.STONE);
+			runGenerator(ModBlocks.TITANIUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 12, 40, 6, Blocks.STONE);
+			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 3, 0, 16, 8, Blocks.STONE);
 			break;
 		case 1:
 			//End
@@ -40,6 +47,8 @@ public class ModWorldGen implements IWorldGenerator {
 	}
 	
 	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Block blockToReplace) {
+		
+		chancesToSpawn = chancesToSpawn * ModConfig.ORE_CHANCE_MULTIPLIER;
 		
 		if (minHeight > maxHeight) {	
 			int swap = minHeight;

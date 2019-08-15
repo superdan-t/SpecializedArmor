@@ -1,0 +1,18 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern":
+	[
+		"xxx",
+		"xxx",
+		"xxx"
+	],
+	"key": {
+		"x": {
+			"item": "sdspar:tin_ingot"
+		}
+	},
+	"result": {
+		"item": "sdspar:tin_block",
+		"count": 1
+	}
+}

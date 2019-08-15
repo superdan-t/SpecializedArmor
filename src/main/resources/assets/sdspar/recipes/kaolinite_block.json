@@ -1,0 +1,23 @@
+{
+    "type": "minecraft:crafting_shaped",
+    
+    "pattern":
+    [
+        "KK",
+        "KK"
+    ],
+    
+    "key":
+    {
+        "K":
+        {
+            "item": "sdspar:kaolinite_ball"
+        }
+    },
+    
+    "result":
+    {
+        "item": "sdspar:kaolinite_block",
+        "count": 1
+    }
+}

@@ -9,6 +9,7 @@ import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber
 public class RegistryHandler {
@@ -42,6 +43,10 @@ public class RegistryHandler {
 			}
 		}
 		
+	}
+	
+	public static void registerOres() {
+		OreDictionary.registerOre("ingotLead", ModItems.LEAD_INGOT);
 	}
 	
 }
