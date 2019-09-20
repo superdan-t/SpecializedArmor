@@ -1,10 +1,10 @@
-package cc.sdservers.spar.main;
+package cc.sdspar.spar.main;
 
-import cc.sdservers.spar.tabs.MaterialsTab;
-import cc.sdservers.spar.util.ModRecipes;
-import cc.sdservers.spar.util.Ref;
-import cc.sdservers.spar.util.handlers.RegistryHandler;
-import cc.sdservers.spar.world.ModWorldGen;
+import cc.sdspar.spar.tabs.MaterialsTab;
+import cc.sdspar.spar.util.ModRecipes;
+import cc.sdspar.spar.util.Ref;
+import cc.sdspar.spar.util.handlers.RegistryHandler;
+import cc.sdspar.spar.world.ModWorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;

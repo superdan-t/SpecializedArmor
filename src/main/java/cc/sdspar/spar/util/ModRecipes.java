@@ -1,7 +1,7 @@
-package cc.sdservers.spar.util;
+package cc.sdspar.spar.util;
 
-import cc.sdservers.spar.block.ModBlocks;
-import cc.sdservers.spar.item.ModItems;
+import cc.sdspar.spar.block.ModBlocks;
+import cc.sdspar.spar.item.ModItems;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 

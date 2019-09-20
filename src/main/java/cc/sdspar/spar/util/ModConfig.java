@@ -1,4 +1,4 @@
-package cc.sdservers.spar.util;
+package cc.sdspar.spar.util;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;

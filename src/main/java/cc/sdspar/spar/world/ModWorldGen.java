@@ -1,11 +1,9 @@
-package cc.sdservers.spar.world;
+package cc.sdspar.spar.world;
 
 import java.util.Random;
 
-import com.google.common.base.Predicate;
-
-import cc.sdservers.spar.block.ModBlocks;
-import cc.sdservers.spar.util.ModConfig;
+import cc.sdspar.spar.block.ModBlocks;
+import cc.sdspar.spar.util.ModConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
@@ -16,7 +14,6 @@ import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.feature.WorldGenMinable;
 import net.minecraftforge.fml.common.IWorldGenerator;
-import scala.Int;
 
 public class ModWorldGen implements IWorldGenerator {
 

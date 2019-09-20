@@ -1,4 +1,4 @@
-package cc.sdservers.spar.main;
+package cc.sdspar.spar.main;
 
 import net.minecraft.item.Item;
 

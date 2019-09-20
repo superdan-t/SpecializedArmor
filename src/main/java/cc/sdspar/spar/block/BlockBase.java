@@ -1,9 +1,9 @@
-package cc.sdservers.spar.block;
+package cc.sdspar.spar.block;
 
-import cc.sdservers.spar.item.ModItems;
-import cc.sdservers.spar.main.Main;
-import cc.sdservers.spar.util.IHasModel;
-import cc.sdservers.spar.util.Ref;
+import cc.sdspar.spar.item.ModItems;
+import cc.sdspar.spar.main.Main;
+import cc.sdspar.spar.util.IHasModel;
+import cc.sdspar.spar.util.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

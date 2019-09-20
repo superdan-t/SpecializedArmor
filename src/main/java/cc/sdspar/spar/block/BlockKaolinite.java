@@ -1,8 +1,8 @@
-package cc.sdservers.spar.block;
+package cc.sdspar.spar.block;
 
 import java.util.Random;
 
-import cc.sdservers.spar.item.ModItems;
+import cc.sdspar.spar.item.ModItems;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;

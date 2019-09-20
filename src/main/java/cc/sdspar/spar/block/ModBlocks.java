@@ -1,4 +1,4 @@
-package cc.sdservers.spar.block;
+package cc.sdspar.spar.block;
 
 import java.util.ArrayList;
 import java.util.List;

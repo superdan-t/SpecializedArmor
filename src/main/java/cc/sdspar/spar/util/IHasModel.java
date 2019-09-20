@@ -1,4 +1,4 @@
-package cc.sdservers.spar.util;
+package cc.sdspar.spar.util;
 
 public interface IHasModel {
 	

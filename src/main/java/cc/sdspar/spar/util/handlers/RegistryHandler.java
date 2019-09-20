@@ -1,8 +1,8 @@
-package cc.sdservers.spar.util.handlers;
+package cc.sdspar.spar.util.handlers;
 
-import cc.sdservers.spar.block.ModBlocks;
-import cc.sdservers.spar.item.ModItems;
-import cc.sdservers.spar.util.IHasModel;
+import cc.sdspar.spar.block.ModBlocks;
+import cc.sdspar.spar.item.ModItems;
+import cc.sdspar.spar.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.event.ModelRegistryEvent;
