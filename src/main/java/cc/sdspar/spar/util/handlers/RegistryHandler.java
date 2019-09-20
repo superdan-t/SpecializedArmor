@@ -46,6 +46,11 @@ public class RegistryHandler {
 	}
 	
 	public static void registerOres() {
+		OreDictionary.registerOre("ingotAluminum", ModItems.ALUMINUM_INGOT);
+		OreDictionary.registerOre("ingotCopper", ModItems.COPPER_INGOT);
+		OreDictionary.registerOre("ingotTantalum", ModItems.TANTALUM_INGOT);
+		OreDictionary.registerOre("ingotTin", ModItems.TIN_INGOT);
+		OreDictionary.registerOre("ingotTitanium", ModItems.TITANIUM_INGOT);
 		OreDictionary.registerOre("ingotLead", ModItems.LEAD_INGOT);
 	}
 	
