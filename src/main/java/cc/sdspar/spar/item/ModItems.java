@@ -11,9 +11,13 @@ public class ModItems {
 	
 	public static final Item ADVANCED_STICK = new ItemBase("advanced_stick");
 	public static final Item ALUMINUM_INGOT = new ItemBase("aluminum_ingot");
-	//public static final Item graphene = new ItemBase("");
 	public static final Item CERAMIC_BRICK = new ItemBase("ceramic_brick");
 	public static final Item COPPER_INGOT = new ItemBase("copper_ingot");
+	public static final Item ENDERINE_CRYSTAL = new ItemBase("enderine_crystal");
+	public static final Item ENDERINE_DIAMOND = new ItemBase("enderine_diamond");
+	public static final Item ENDERINE_DUST = new ItemBase("enderine_dust");
+	public static final Item ENDERINE_GOLD_INGOT = new ItemBase("enderine_gold_ingot");
+	public static final Item ENDERINE_QUARTZ = new ItemBase("enderine_quartz");
 	public static final Item HAFNIUM_DIOXIDE = new ItemBase("hafnium_dioxide");
 	public static final Item HAFNIUM_CARBIDE = new ItemBase("hafnium_carbide");
 	public static final Item KAOLINITE_BALL = new ItemBase("kaolinite_ball");

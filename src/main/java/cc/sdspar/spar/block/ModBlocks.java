@@ -12,6 +12,11 @@ public class ModBlocks {
 	//Ores
 	public static final Block ALUMINUM_ORE = new BlockOre("aluminum_ore", 1);
 	public static final Block COPPER_ORE = new BlockOre("copper_ore", 1);
+	public static final Block ENDERINE_CRYSTAL_ORE = new BlockOre("enderine_crystal_ore", 3);
+	public static final Block ENDERINE_DIAMOND_ORE = new BlockOre("enderine_diamond_ore", 3);
+	public static final Block ENDERINE_DUST_ORE = new BlockOre("enderine_dust_ore", 3);
+	public static final Block ENDERINE_GOLD_ORE = new BlockOre("enderine_gold_ore", 3);
+	public static final Block ENDERINE_QUARTZ_ORE = new BlockOre("enderine_quartz_ore", 3);
 	public static final Block LEAD_ORE = new BlockOre("lead_ore", 2);
 	public static final Block MOISSANITE_ORE = new BlockOre("moissanite_ore", 2);
 	public static final Block NETHER_CRYSTAL_ORE = new BlockOre("nether_crystal_ore", 3);
