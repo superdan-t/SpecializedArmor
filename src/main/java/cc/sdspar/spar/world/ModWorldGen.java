@@ -38,6 +38,11 @@ public class ModWorldGen implements IWorldGenerator {
 			break;
 		case 1:
 			//End
+			runGenerator(ModBlocks.ENDERINE_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 100, 85, 120, 3, Blocks.OBSIDIAN);
+			runGenerator(ModBlocks.ENDERINE_DIAMOND_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 140, 70, 120, 4, Blocks.OBSIDIAN);
+			runGenerator(ModBlocks.ENDERINE_DUST_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 130, 70, 120, 3, Blocks.OBSIDIAN);
+			runGenerator(ModBlocks.ENDERINE_GOLD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 160, 65, 120, 4, Blocks.OBSIDIAN);
+			runGenerator(ModBlocks.ENDERINE_QUARTZ_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 130, 0, 60, 4, Blocks.OBSIDIAN);
 			break;
 		}
 
