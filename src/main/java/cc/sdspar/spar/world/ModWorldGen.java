@@ -50,7 +50,6 @@ public class ModWorldGen implements IWorldGenerator {
 	
 	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Block blockToReplace) {
 		
-		chancesToSpawn = chancesToSpawn * ModConfig.ORE_CHANCE_MULTIPLIER;
 		
 		if (minHeight > maxHeight) {	
 			int swap = minHeight;

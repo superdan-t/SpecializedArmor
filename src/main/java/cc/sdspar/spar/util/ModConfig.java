@@ -11,20 +11,14 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Config(modid = Ref.MOD_ID)
 public class ModConfig {
-
-	@Name("Generate copper ore?")
-	public static boolean GENERATE_COPPER = true;
 	
-	@Name("Generate lead ore?")
-	public static boolean GENERATE_LEAD = true;
+	@Name("Industrial mode")
+	@Comment("Change machine energy usage to balance with industrial mods")
+	public static boolean INDUSTRIAL_MODE = true;
 	
-	@Name("Generate tin ore?")
-	public static boolean GENERATE_TIN = true;
-	
-	@Name("Ore generation chance multiplier")
-	@Comment("The default and recommended value is 1")
-	@RangeInt(min = 1, max = 10)
-	public static int ORE_CHANCE_MULTIPLIER = 1;
+	@Name("Modpack mode")
+	@Comment("Reduce the generation of copper, tin, and aluminum since they are commonly added in other mods")
+	public static boolean MODPACK_MODE;
 
 	@EventBusSubscriber(modid = Ref.MOD_ID)
 	private static class EventHandler {
