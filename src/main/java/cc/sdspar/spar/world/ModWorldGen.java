@@ -22,33 +22,33 @@ public class ModWorldGen implements IWorldGenerator {
 		switch (world.provider.getDimension()) {
 		case -1:
 			//Nether
-			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 2, 0, 47, 4, Blocks.NETHERRACK);
-			runGenerator(ModBlocks.NETHER_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 1, 0, 100, 2, Blocks.NETHERRACK);
-			runGenerator(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 0, 100, 10, Blocks.NETHERRACK);
+			runGenerator(ModBlocks.MOISSANITE_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.NETHERRACK, 0, 47, 4, 2);
+			runGenerator(ModBlocks.NETHER_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.NETHERRACK, 0, 100, 2, 1);
+			runGenerator(ModBlocks.TANTALUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.NETHERRACK, 0, 100, 10, 8);
 			break;
 		case 0:
 			//Overworld
-			runGenerator(ModBlocks.ALUMINUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 20, 48, 9, Blocks.STONE);
-			runGenerator(ModBlocks.COPPER_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 12, 10, 45, 8, Blocks.STONE);
-			runGenerator(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, 10, 50, 100, 20, Blocks.DIRT);
-			runGenerator(ModBlocks.LEAD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 10, 10, 45, 8, Blocks.STONE);
-			runGenerator(ModBlocks.TIN_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 9, 20, 48, 8, Blocks.STONE);
-			runGenerator(ModBlocks.TITANIUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 8, 12, 40, 6, Blocks.STONE);
-			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 3, 0, 16, 8, Blocks.STONE);
+			runGenerator(ModBlocks.ALUMINUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.STONE, 20, 48, 9, 8);
+			runGenerator(ModBlocks.COPPER_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.STONE, 10, 45, 8, 12);
+			runGenerator(ModBlocks.KAOLINITE_BLOCK.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.DIRT, 50, 100, 20, 10);
+			runGenerator(ModBlocks.LEAD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.STONE, 10, 45, 8, 10);
+			runGenerator(ModBlocks.TIN_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.STONE, 20, 48, 8, 9);
+			runGenerator(ModBlocks.TITANIUM_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.STONE, 12, 40, 6, 8);
+			runGenerator(ModBlocks.ZIRCON_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.STONE, 0, 16, 8, 3);
 			break;
 		case 1:
 			//End
-			runGenerator(ModBlocks.ENDERINE_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 100, 85, 120, 3, Blocks.OBSIDIAN);
-			runGenerator(ModBlocks.ENDERINE_DIAMOND_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 140, 70, 120, 4, Blocks.OBSIDIAN);
-			runGenerator(ModBlocks.ENDERINE_DUST_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 130, 70, 120, 3, Blocks.OBSIDIAN);
-			runGenerator(ModBlocks.ENDERINE_GOLD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 160, 65, 120, 4, Blocks.OBSIDIAN);
-			runGenerator(ModBlocks.ENDERINE_QUARTZ_ORE.getDefaultState(), world, rand, chunkX, chunkZ, 130, 0, 60, 4, Blocks.OBSIDIAN);
+			runGenerator(ModBlocks.ENDERINE_GOLD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 65, 75, 4, 60);
+			runGenerator(ModBlocks.ENDERINE_DIAMOND_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 70, 120, 4, 110);
+			runGenerator(ModBlocks.ENDERINE_QUARTZ_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 0, 60, 4, 130);
+			runGenerator(ModBlocks.ENDERINE_DUST_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 70, 120, 3, 130);
+			runGenerator(ModBlocks.ENDERINE_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 85, 120, 3, 100);
 			break;
 		}
 
 	}
 	
-	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, int chancesToSpawn, int minHeight, int maxHeight, int size, Block blockToReplace) {
+	private void runGenerator(IBlockState block, World world, Random rand, int chunk_X, int chunk_Z, Block blockToReplace, int minHeight, int maxHeight, int size, int chancesToSpawn) {
 		
 		
 		if (minHeight > maxHeight) {	
