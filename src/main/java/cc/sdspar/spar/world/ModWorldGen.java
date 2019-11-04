@@ -3,7 +3,6 @@ package cc.sdspar.spar.world;
 import java.util.Random;
 
 import cc.sdspar.spar.block.ModBlocks;
-import cc.sdspar.spar.util.ModConfig;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.block.state.pattern.BlockMatcher;
