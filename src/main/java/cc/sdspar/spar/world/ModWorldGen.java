@@ -38,11 +38,12 @@ public class ModWorldGen implements IWorldGenerator {
 			break;
 		case 1:
 			//End
-			runGenerator(ModBlocks.ENDERINE_GOLD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 65, 75, 4, 60);
-			runGenerator(ModBlocks.ENDERINE_DIAMOND_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 70, 120, 4, 110);
+			//Order is rarity
+			runGenerator(ModBlocks.ENDERINE_GOLD_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 65, 85, 4, 60);
+			runGenerator(ModBlocks.ENDERINE_DIAMOND_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 75, 95, 4, 55);
 			runGenerator(ModBlocks.ENDERINE_QUARTZ_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 0, 60, 4, 130);
-			runGenerator(ModBlocks.ENDERINE_DUST_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 70, 120, 3, 130);
-			runGenerator(ModBlocks.ENDERINE_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 85, 120, 3, 100);
+			runGenerator(ModBlocks.ENDERINE_DUST_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 70, 120, 3, 170);
+			runGenerator(ModBlocks.ENDERINE_CRYSTAL_ORE.getDefaultState(), world, rand, chunkX, chunkZ, Blocks.OBSIDIAN, 85, 120, 3, 150);
 			break;
 		}
 
