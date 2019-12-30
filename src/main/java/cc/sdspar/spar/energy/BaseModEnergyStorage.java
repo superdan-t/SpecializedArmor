@@ -3,8 +3,9 @@ package cc.sdspar.spar.energy;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.energy.IEnergyStorage;
 
-public class BaseModEnergyStorage implements IModEnergyHandler {
+public class BaseModEnergyStorage implements IModEnergyHandler, IEnergyStorage {
 
 	protected long charge;
 	
@@ -87,6 +88,36 @@ public class BaseModEnergyStorage implements IModEnergyHandler {
 	public <T> T getCapability(Capability<T> capability) {
 		if (capability == CapabilityEnergy.ENERGY) return (T) this;
 		else return null;
+	}
+
+	@Override
+	public int receiveEnergy(int maxReceive, boolean simulate) {
+		return (int) this.insertCharge(maxReceive, simulate);
+	}
+
+	@Override
+	public int extractEnergy(int maxExtract, boolean simulate) {
+		return (int) this.extractCharge(maxExtract, simulate);
+	}
+
+	@Override
+	public int getEnergyStored() {
+		return (int) this.charge;
+	}
+
+	@Override
+	public int getMaxEnergyStored() {
+		return (int) this.capacity;
+	}
+
+	@Override
+	public boolean canExtract() {
+		return this.outputRate > 0 && this.charge > 0;
+	}
+
+	@Override
+	public boolean canReceive() {
+		return this.chargeRate > 0 && this.charge < this.capacity;
 	}
 	
 }
