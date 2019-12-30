@@ -4,6 +4,7 @@ import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
+import net.minecraft.inventory.IContainerListener;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.items.CapabilityItemHandler;
@@ -12,7 +13,11 @@ import net.minecraftforge.items.SlotItemHandler;
 
 public class ContainerVacuumArcFurnace extends Container {
 
-	TileEntityVacuumArcFurnace vaf;
+	private final TileEntityVacuumArcFurnace vaf;
+	
+	private int progress;
+	private int charge;
+	private int capacity;
 
 	public ContainerVacuumArcFurnace(InventoryPlayer inventory, TileEntityVacuumArcFurnace tileEntity) {
 		vaf = tileEntity;
@@ -33,6 +38,37 @@ public class ContainerVacuumArcFurnace extends Container {
 			addSlotToContainer(new Slot(inventory, i, 8 + i * 18, 142));
 		}
 
+	}
+	
+	@Override
+	public void updateProgressBar(int id, int data) {
+		this.vaf.setField(id, data);
+	}
+
+	@Override
+	public void detectAndSendChanges() {
+		super.detectAndSendChanges();
+        for (int i = 0; i < this.listeners.size(); i++) {
+        	
+            IContainerListener icontainerlistener = this.listeners.get(i);
+
+            if (this.progress != this.vaf.progress) {
+                icontainerlistener.sendWindowProperty(this, 0, this.vaf.progress);
+            }
+            
+            if (this.charge != (int) this.vaf.storage.getCharge()) {
+            	icontainerlistener.sendWindowProperty(this, 1, (int) this.vaf.storage.getCharge());
+            }
+
+            if (this.capacity != (int) this.vaf.storage.getCapacity()) {
+                icontainerlistener.sendWindowProperty(this, 2, (int) this.vaf.storage.getCapacity());
+            }
+
+        }
+
+        this.progress = this.vaf.progress;
+        this.charge = (int) this.vaf.storage.getCharge();
+        this.capacity = (int) this.vaf.storage.getCapacity();
 	}
 
 	@Override

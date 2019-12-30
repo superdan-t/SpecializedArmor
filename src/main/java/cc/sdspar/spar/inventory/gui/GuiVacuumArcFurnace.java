@@ -36,13 +36,18 @@ public class GuiVacuumArcFurnace extends GuiContainer {
 
 	@Override
 	protected void drawGuiContainerBackgroundLayer(float p_146976_1_, int p_146976_2_, int p_146976_3_) {
+		
+		int scaledCharge = getScaledCharge(48);
 		GL11.glColor4f(1F, 1F, 1F, 1F);
 		Minecraft.getMinecraft().getTextureManager().bindTexture(texture);
-		int scaledEnergyStored = 48 * vacuumArcFurnace.getEnergyStored() / vacuumArcFurnace.getMaxEnergyStored();
 		drawTexturedModalRect(guiLeft, guiTop, 0, 0, xSize, ySize);
 		drawTexturedModalRect(guiLeft + 59, guiTop + 34, 176, 0, 58, 24 * vacuumArcFurnace.progress / 160);
-		drawTexturedModalRect(guiLeft + 8, guiTop + 56 - scaledEnergyStored, 176, 72 - scaledEnergyStored, 16, scaledEnergyStored);
+		drawTexturedModalRect(guiLeft + 8, guiTop + 56 - scaledCharge, 176, 72 - scaledCharge, 16, scaledCharge);
 		
+	}
+	
+	private int getScaledCharge(int scale) {
+		return (int) (48 * this.vacuumArcFurnace.storage.getCharge() / this.vacuumArcFurnace.storage.getCapacity());
 	}
 
 }
