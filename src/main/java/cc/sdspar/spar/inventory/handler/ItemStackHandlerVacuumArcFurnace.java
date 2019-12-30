@@ -1,0 +1,92 @@
+package cc.sdspar.spar.inventory.handler;
+
+import javax.annotation.Nonnull;
+
+import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
+import cc.sdspar.spar.util.handler.recpies.RecipeHandler;
+import cc.sdspar.spar.util.handler.recpies.VacuumArcRecipe;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.energy.CapabilityEnergy;
+import net.minecraftforge.items.ItemStackHandler;
+
+public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
+	
+	public boolean validRecipe;
+	
+	public TileEntityVacuumArcFurnace vaf;
+	
+	public VacuumArcRecipe recipe;
+	
+	public ItemStackHandlerVacuumArcFurnace() {
+		super(5);
+	}
+	
+    @Override
+    public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
+        if (slot >= 2) {
+        	return false;
+        } else if (slot == 4 && !stack.hasCapability(CapabilityEnergy.ENERGY, null)) {
+        	return false;
+        } else {
+        	return true;
+        }
+    }
+    
+    @Override
+    protected void onContentsChanged(int slot) {
+    	vaf.markDirty();
+    	if (slot == 4) {
+    		if (getStackInSlot(4).isEmpty()) {
+    			vaf.charging = false;
+    		} else {
+    			vaf.charging = true;
+    		}
+    		return;
+    	}
+    	if (slot == 0 || slot == 1) {
+    		recipe = RecipeHandler.getVacuumArcFurnaceResult(getStackInSlot(0), getStackInSlot(1));
+    	}
+    	
+    	if (recipe != null && canFitResult()) {
+    		validRecipe = true;
+    	} else {
+    		validRecipe = false;
+    		vaf.progress = 0;
+    	}
+    }
+    
+    /**
+     * NO ERROR CHECKING - Unless called by an external source, there is no
+     * reason for error checking since internal errors are prevented elsewhere
+     */
+    public void processResults() {
+    	ItemStack remainder = insertItem(2, recipe.output1.copy(), false);
+    	if (remainder.getCount() > 0) {
+    		insertItem(3, remainder, false);
+    	}
+    	remainder = insertItem(2, recipe.output2.copy(), false);
+    	if (remainder.getCount() > 0) {
+    		insertItem(3, remainder, false);
+    	}
+    	extractItem(0, 1, false);
+    	extractItem(1, 1, false);
+    }
+    
+    private boolean canFitResult() {
+		
+		ItemStack simRemainder = insertItem(2, recipe.output1.copy(), true);
+		if (simRemainder.getCount() > 0 && insertItem(3, simRemainder, true).getCount() > 0) {
+			return false;
+		}
+		simRemainder = insertItem(2, recipe.output2.copy(), true);
+		if (simRemainder.getCount() > 0 && insertItem(3, simRemainder, true).getCount() > 0) {
+			return false;
+		}
+		
+		return true;
+		
+    }
+    
+    
+
+}

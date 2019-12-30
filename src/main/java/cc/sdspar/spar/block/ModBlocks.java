@@ -40,4 +40,8 @@ public class ModBlocks {
 	public static final Block CERAMIC_BLOCK = new BlockCeramic("ceramic_block");
 	public static final Block KAOLINITE_BLOCK = new BlockKaolinite("kaolinite_block");
 	
+	//Machines
+	public static final Block VACUUM_ARC_FURNACE = new BlockVacuumArcFurnace();
+	
+	
 }

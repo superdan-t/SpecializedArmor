@@ -1,14 +1,18 @@
-package cc.sdspar.spar.util.handlers;
+package cc.sdspar.spar.util.handler;
 
 import cc.sdspar.spar.block.ModBlocks;
 import cc.sdspar.spar.item.ModItems;
+import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import cc.sdspar.spar.util.IHasModel;
+import cc.sdspar.spar.util.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.oredict.OreDictionary;
 
 @EventBusSubscriber
@@ -25,6 +29,8 @@ public class RegistryHandler {
 	public static void onBlockRegister(RegistryEvent.Register<Block> event) {
 		
 		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+		
+		GameRegistry.registerTileEntity(TileEntityVacuumArcFurnace.class, new ResourceLocation(Ref.MOD_ID + ":vacuum_arc_furnace"));
 		
 	}
 	

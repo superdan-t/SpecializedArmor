@@ -1,0 +1,13 @@
+{
+    "variants":
+    {
+        "burning=false,facing=north": { "model": "sdspar:vacuum_arc_furnace" },
+        "burning=false,facing=east": { "model": "sdspar:vacuum_arc_furnace", "y": 90 },
+        "burning=false,facing=south": { "model": "sdspar:vacuum_arc_furnace", "y": 180 },
+        "burning=false,facing=west": { "model": "sdspar:vacuum_arc_furnace", "y": 270 },
+        "burning=true,facing=north": { "model": "sdspar:active_vacuum_arc_furnace" },
+        "burning=true,facing=east": { "model": "sdspar:active_vacuum_arc_furnace", "y": 90 },
+        "burning=true,facing=south": { "model": "sdspar:active_vacuum_arc_furnace", "y": 180 },
+        "burning=true,facing=west": { "model": "sdspar:active_vacuum_arc_furnace", "y":270  }
+    }
+}

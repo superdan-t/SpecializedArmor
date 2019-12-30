@@ -1,9 +1,10 @@
 package cc.sdspar.spar.main;
 
+import cc.sdspar.spar.inventory.handler.GuiHandler;
 import cc.sdspar.spar.tabs.MaterialsTab;
 import cc.sdspar.spar.util.ModRecipes;
 import cc.sdspar.spar.util.Ref;
-import cc.sdspar.spar.util.handlers.RegistryHandler;
+import cc.sdspar.spar.util.handler.RegistryHandler;
 import cc.sdspar.spar.world.ModWorldGen;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
@@ -13,6 +14,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.network.NetworkRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.NAME, version = Ref.VERSION)
@@ -35,6 +37,7 @@ public class Main {
     public static void init(FMLInitializationEvent e) {
     	ModRecipes.init();
     	RegistryHandler.registerOres();
+    	NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());
     }
 
     @EventHandler

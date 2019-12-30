@@ -1,0 +1,13 @@
+
+{
+    "parent": "block/orientable",
+    "textures": {
+        "particle": "sdspar:blocks/vacuum_arc_furnace_side",
+        "up": "sdspar:blocks/vacuum_arc_furnace_side",
+        "down": "sdspar:blocks/vacuum_arc_furnace_side",
+        "north": "sdspar:blocks/vacuum_arc_furnace_front",
+        "east": "sdspar:blocks/vacuum_arc_furnace_side",
+        "south": "sdspar:blocks/vacuum_arc_furnace_side",
+        "west": "sdspar:blocks/vacuum_arc_furnace_side"
+    }
+}
