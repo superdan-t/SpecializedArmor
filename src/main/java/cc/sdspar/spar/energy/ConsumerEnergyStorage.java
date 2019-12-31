@@ -22,7 +22,7 @@ public class ConsumerEnergyStorage extends BaseModEnergyStorage {
 	public long useCharge(long charge, boolean simulate) {
 		long chargeUsed = Math.min(charge, this.charge);
 		if (!simulate) {
-			charge -= chargeUsed;
+			this.charge -= chargeUsed;
 		}
 		return chargeUsed;
 	}
