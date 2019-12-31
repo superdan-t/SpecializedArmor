@@ -2,11 +2,11 @@ package cc.sdspar.spar.inventory.handler;
 
 import javax.annotation.Nonnull;
 
+import cc.sdspar.spar.item.ModItems;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import cc.sdspar.spar.util.handler.recpies.RecipeHandler;
 import cc.sdspar.spar.util.handler.recpies.VacuumArcRecipe;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.items.ItemStackHandler;
 
 public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
@@ -23,12 +23,12 @@ public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
 	
     @Override
     public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
-        if (slot >= 2) {
-        	return false;
-        } else if (slot == 4 && !stack.hasCapability(CapabilityEnergy.ENERGY, null)) {
-        	return false;
-        } else {
+        if (slot <= 1) {
         	return true;
+        } else if (slot == 4 && stack.getItem() == ModItems.ADVANCED_STICK) {
+        	return true;
+        } else {
+        	return false;
         }
     }
     
@@ -36,16 +36,24 @@ public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
     protected void onContentsChanged(int slot) {
     	vaf.markDirty();
     	if (slot == 4) {
-    		if (getStackInSlot(4).isEmpty()) {
-    			vaf.charging = false;
-    		} else {
-    			vaf.charging = true;
-    		}
-    		return;
+    		checkEnergySupply();
+    	} else {
+    		checkRecipes();
     	}
-    	if (slot == 0 || slot == 1) {
-    		recipe = RecipeHandler.getVacuumArcFurnaceResult(getStackInSlot(0), getStackInSlot(1));
-    	}
+    	
+    }
+
+    public void checkEnergySupply() {
+		if (getStackInSlot(4).isEmpty()) {
+			vaf.charging = false;
+		} else {
+			vaf.charging = true;
+		}
+		return;
+    }
+    
+    public void checkRecipes() {
+    	recipe = RecipeHandler.getVacuumArcFurnaceResult(getStackInSlot(0), getStackInSlot(1));
     	
     	if (recipe != null && canFitResult()) {
     		validRecipe = true;
@@ -86,7 +94,5 @@ public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
 		return true;
 		
     }
-    
-    
 
 }

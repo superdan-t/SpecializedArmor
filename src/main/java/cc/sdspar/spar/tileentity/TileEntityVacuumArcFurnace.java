@@ -14,7 +14,7 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 	public int progress = 0;
 	
 	public boolean charging = false;
-
+	
 	public TileEntityVacuumArcFurnace() {
 		super(new ItemStackHandlerVacuumArcFurnace(), capacity, chargeRate);
 		((ItemStackHandlerVacuumArcFurnace)handler).vaf = this;
@@ -34,6 +34,7 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 					} else {
 						super.storage.useCharge(super.storage.getCharge(), false);
 					}
+					this.markDirty();
 				}
 			} else {
 				if (progress > 0) {
@@ -44,7 +45,24 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 		
 		if (charging) {
 			//TODO Item charging support
+			this.storage.insertCharge(10, false);
 		}
+	
+	}
+	
+	@Override
+	public void onLoad() {
+		// The onLoad function for ItemStackHandlers only runs client side :(
+		((ItemStackHandlerVacuumArcFurnace)handler).checkRecipes();
+		((ItemStackHandlerVacuumArcFurnace)handler).checkEnergySupply();
+	}
+	
+	public void syncUpdates() {
+		this.world.markBlockRangeForRenderUpdate(this.pos, this.pos);
+		this.world.notifyBlockUpdate(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos),
+				3);
+		this.world.scheduleBlockUpdate(this.pos, this.getBlockType(), 0, 0);
+		markDirty();
 	}
 	
 	@Override
@@ -63,6 +81,19 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 		case 2:
 			this.storage.setCapacity(data);
 			break;
+		}
+	}
+	
+	public int getField(int id) {
+		switch (id) {
+		case 0:
+			return this.progress;
+		case 1:
+			return (int) this.storage.getCharge();
+		case 2:
+			return (int) this.storage.getCapacity();
+		default:
+			return 0;
 		}
 	}
 

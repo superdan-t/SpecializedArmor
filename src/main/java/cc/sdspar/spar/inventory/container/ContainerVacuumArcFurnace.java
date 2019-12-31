@@ -44,7 +44,7 @@ public class ContainerVacuumArcFurnace extends Container {
 	public void updateProgressBar(int id, int data) {
 		this.vaf.setField(id, data);
 	}
-
+	
 	@Override
 	public void detectAndSendChanges() {
 		super.detectAndSendChanges();
@@ -66,9 +66,9 @@ public class ContainerVacuumArcFurnace extends Container {
 
         }
 
-        this.progress = this.vaf.progress;
-        this.charge = (int) this.vaf.storage.getCharge();
-        this.capacity = (int) this.vaf.storage.getCapacity();
+        this.progress = vaf.getField(0);
+        this.charge = vaf.getField(1);
+        this.capacity = vaf.getField(2);
 	}
 
 	@Override
@@ -80,5 +80,7 @@ public class ContainerVacuumArcFurnace extends Container {
 	public ItemStack transferStackInSlot(EntityPlayer player, int slot) {
 		return ItemStack.EMPTY;
 	}
+	
+	
 
 }
