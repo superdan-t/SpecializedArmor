@@ -137,4 +137,4 @@ tile.sdspar.zircon_ore.name=Zircon Ore
 tile.smelteryCase.name=Smeltery Casing
 tile.smelteryComputer.name=Smeltery Computer
 tile.smelteryCore.name=Smeltery Access Hatch
-tile.vacuumArcFurnace_off.name=Vacuum Arc Furnace
+tile.sdspar.vacuum_arc_furnace.name=Vacuum Arc Furnace
