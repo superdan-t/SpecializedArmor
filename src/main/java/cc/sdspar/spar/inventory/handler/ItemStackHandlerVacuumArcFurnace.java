@@ -53,14 +53,8 @@ public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
     }
     
     public void checkRecipes() {
-    	recipe = RecipeHandler.getVacuumArcFurnaceResult(getStackInSlot(0), getStackInSlot(1));
-    	
-    	if (recipe != null && canFitResult()) {
-    		validRecipe = true;
-    	} else {
-    		validRecipe = false;
-    		vaf.progress = 0;
-    	}
+    	recipe = RecipeHandler.getVacuumArcFurnaceResult(getStackInSlot(0), getStackInSlot(1));	  	
+    	validRecipe = recipe != null && canFitResult();
     }
     
     /**

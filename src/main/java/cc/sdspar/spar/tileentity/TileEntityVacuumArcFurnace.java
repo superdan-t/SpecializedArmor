@@ -41,6 +41,8 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 					progress--;
 				}
 			}
+		} else {
+			progress = 0;
 		}
 		
 		if (charging) {
