@@ -46,6 +46,12 @@ public class GuiVacuumArcFurnace extends GuiContainer {
 		
 	}
 	
+	@Override
+	public void drawScreen(int mouseX, int mouseY, float partialTicks) {
+		super.drawScreen(mouseX, mouseY, partialTicks);
+		this.renderHoveredToolTip(mouseX, mouseY);
+	}
+	
 	private int getScaledCharge(int scale) {
 		return (int) (48 * this.vacuumArcFurnace.storage.getCharge() / this.vacuumArcFurnace.storage.getCapacity());
 	}
