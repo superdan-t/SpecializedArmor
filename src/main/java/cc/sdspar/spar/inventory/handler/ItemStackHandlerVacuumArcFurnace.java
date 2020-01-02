@@ -81,14 +81,24 @@ public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
     }
     
     private boolean canFitResult() {
-		
+    	
+    	boolean slot1Used = false;
+    	boolean slot2Used = false;
+    	
 		ItemStack simRemainder = insertItem(2, recipe.output1.copy(), true);
-		if (simRemainder.getCount() > 0 && insertItem(3, simRemainder, true).getCount() > 0) {
-			return false;
+		if (simRemainder.getCount() > 0) {
+			if (insertItem(3, simRemainder, true).getCount() > 0) {
+				return false;
+			}
+			slot2Used = true;
+		} else {
+			slot1Used = true;
 		}
 		simRemainder = insertItem(2, recipe.output2.copy(), true);
-		if (simRemainder.getCount() > 0 && insertItem(3, simRemainder, true).getCount() > 0) {
-			return false;
+		if (simRemainder.getCount() > 0 || slot1Used) {
+			if (insertItem(3, simRemainder, true).getCount() > 0 || slot2Used) {
+				return false;
+			}
 		}
 		
 		return true;
