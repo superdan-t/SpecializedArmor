@@ -9,7 +9,7 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 	
 	private static final int capacity = 10000;
 	private static final int chargeRate = 100;
-	private static final int consumptionRate = 8;
+	private static final int consumptionRate = 45;
 	
 	public int progress = 0;
 	
