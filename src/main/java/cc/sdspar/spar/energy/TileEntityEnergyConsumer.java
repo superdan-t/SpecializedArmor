@@ -14,7 +14,7 @@ import net.minecraftforge.items.ItemStackHandler;
 public abstract class TileEntityEnergyConsumer extends TileEntity implements ITickable {
 	
 	public ItemStackHandler handler = new ItemStackHandler();
-	public ConsumerEnergyStorage storage;
+	public EnergyStorageConsumer storage;
 	
 	/**
 	 * For tile entities that are machines and consume energy
@@ -27,12 +27,12 @@ public abstract class TileEntityEnergyConsumer extends TileEntity implements ITi
 	 */
 	public TileEntityEnergyConsumer(int slots, int capacity, int chargeRate) {
 		this.handler = new ItemStackHandler(slots);
-		this.storage = new ConsumerEnergyStorage(0, capacity, chargeRate);
+		this.storage = new EnergyStorageConsumer(0, capacity, chargeRate);
 	}
 	
 	public TileEntityEnergyConsumer(ItemStackHandler handler, int capacity, int chargeRate) {
 		this.handler = handler;
-		this.storage = new ConsumerEnergyStorage(0, capacity, chargeRate);
+		this.storage = new EnergyStorageConsumer(0, capacity, chargeRate);
 	}
 	
 	@Override

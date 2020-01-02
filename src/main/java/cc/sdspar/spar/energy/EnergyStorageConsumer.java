@@ -1,6 +1,6 @@
 package cc.sdspar.spar.energy;
 
-public class ConsumerEnergyStorage extends BaseModEnergyStorage {
+public class EnergyStorageConsumer extends EnergyStorageBase {
 
 	/**
 	 * For mod consumers to handle energy
@@ -8,7 +8,7 @@ public class ConsumerEnergyStorage extends BaseModEnergyStorage {
 	 * @param capacity
 	 * @param chargeRate
 	 */
-	public ConsumerEnergyStorage(long charge, long capacity, long chargeRate) {
+	public EnergyStorageConsumer(long charge, long capacity, long chargeRate) {
 		super(charge, capacity, chargeRate, 0);
 		
 	}

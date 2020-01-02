@@ -5,7 +5,7 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.energy.CapabilityEnergy;
 import net.minecraftforge.energy.IEnergyStorage;
 
-public class BaseModEnergyStorage implements IModEnergyHandler, IEnergyStorage {
+public class EnergyStorageBase implements IModEnergyHandler, IEnergyStorage {
 
 	protected long charge;
 	
@@ -24,7 +24,7 @@ public class BaseModEnergyStorage implements IModEnergyHandler, IEnergyStorage {
 	 * @param chargeRate Maximum charge accepted in one operation
 	 * @param outputRate Maximum charge supplied in one operation
 	 */
-	public BaseModEnergyStorage(long charge, long capacity, long chargeRate, long outputRate) {
+	public EnergyStorageBase(long charge, long capacity, long chargeRate, long outputRate) {
 		this.charge = charge <= capacity ? charge : capacity;
 		this.capacity = capacity;
 		this.chargeRate = chargeRate;
