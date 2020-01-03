@@ -1,5 +1,6 @@
 package cc.sdspar.spar.tileentity;
 
+import cc.sdspar.spar.energy.EnergyHelper;
 import cc.sdspar.spar.energy.TileEntityEnergyConsumer;
 import cc.sdspar.spar.inventory.handler.ItemStackHandlerVacuumArcFurnace;
 import net.minecraft.util.text.ITextComponent;
@@ -46,8 +47,7 @@ public class TileEntityVacuumArcFurnace extends TileEntityEnergyConsumer {
 		}
 		
 		if (charging) {
-			//TODO Item charging support
-			this.storage.insertCharge(10, false);
+			this.storage.insertCharge(EnergyHelper.extractCharge(this.handler.getStackInSlot(4), Math.min(TileEntityVacuumArcFurnace.chargeRate, this.storage.getCapacity() - this.storage.getCharge()), false), false);
 		}
 	
 	}

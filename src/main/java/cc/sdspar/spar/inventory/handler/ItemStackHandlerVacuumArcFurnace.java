@@ -2,7 +2,7 @@ package cc.sdspar.spar.inventory.handler;
 
 import javax.annotation.Nonnull;
 
-import cc.sdspar.spar.item.ModItems;
+import cc.sdspar.spar.energy.EnergyHelper;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import cc.sdspar.spar.util.handler.recpies.RecipeHandler;
 import cc.sdspar.spar.util.handler.recpies.VacuumArcRecipe;
@@ -25,7 +25,7 @@ public class ItemStackHandlerVacuumArcFurnace extends ItemStackHandler {
     public boolean isItemValid(int slot, @Nonnull ItemStack stack) {
         if (slot <= 1) {
         	return true;
-        } else if (slot == 4 && stack.getItem() == ModItems.ADVANCED_STICK) {
+        } else if (slot == 4 && EnergyHelper.isChargeProvider(stack)) {
         	return true;
         } else {
         	return false;
