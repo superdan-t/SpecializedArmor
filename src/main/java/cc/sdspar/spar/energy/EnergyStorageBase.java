@@ -117,7 +117,7 @@ public class EnergyStorageBase implements IModEnergyHandler, IEnergyStorage {
 
 	@Override
 	public boolean canReceive() {
-		return this.chargeRate > 0 && this.charge < this.capacity;
+		return this.chargeRate > 0;
 	}
 	
 }
