@@ -17,7 +17,11 @@ public class ModConfig {
 	
 	@Name("Modpack mode")
 	@Comment("Reduce the generation of copper, tin, and aluminum since they are commonly added in other mods")
-	public static boolean MODPACK_MODE;
+	public static boolean MODPACK_MODE = false;
+	
+	@Name("Developer mode")
+	@Comment("Adds back \"Advanced Stick\" (normally unobtainable + unusable) to enable debug mode in some machines")
+	public static boolean DEVELOPER_MODE = false;
 
 	@EventBusSubscriber(modid = Ref.MOD_ID)
 	private static class EventHandler {

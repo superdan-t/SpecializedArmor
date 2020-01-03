@@ -27,9 +27,11 @@ public class ModRecipes {
 		GameRegistry.addSmelting(ModBlocks.KAOLINITE_BLOCK, new ItemStack(ModBlocks.CERAMIC_BLOCK), 0.35F);
 		
 		//Vacuum Arc Furnace
-		RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.STICK, Items.NETHER_STAR, new ItemStack(ModItems.ADVANCED_STICK), null));
-		RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.DIAMOND, Items.POTATO, null, new ItemStack(ModItems.ADVANCED_STICK)));
-		RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.COAL, Items.ACACIA_DOOR, new ItemStack(Items.SHEARS), new ItemStack(Items.FIRE_CHARGE)));
+		if (ModConfig.DEVELOPER_MODE) {
+			//Recipes for testing purposes only
+			RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.STICK, Items.NETHER_STAR, new ItemStack(ModItems.ADVANCED_STICK), null));
+			RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.COAL, Items.ACACIA_DOOR, new ItemStack(Items.SHEARS), new ItemStack(Items.FIRE_CHARGE)));
+		}
 		
 	}
 
