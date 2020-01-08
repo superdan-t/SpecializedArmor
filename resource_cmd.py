@@ -59,9 +59,15 @@ while repeat:
         print("\t- Close the utility")
         
     elif cmd == "lang":
-
-        type = segmented_line[2]
-        internal_name = segmented_line[3]
+        type = ""
+        internal_name = ""
+        try:
+            if (segmented_line[1] != "order"):
+                type = segmented_line[2]
+            if (segmented_line[1] == "remove" or segmented_line[1] == "add"):
+                internal_name = segmented_line[3]
+        except IndexError:
+            print("Too few arguments for selection.")
         if segmented_line[1] == "add":
             display_name = ""
             for item in segmented_line[4:len(segmented_line)]:
