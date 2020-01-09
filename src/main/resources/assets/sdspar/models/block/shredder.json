@@ -1,0 +1,13 @@
+
+{
+    "parent": "block/orientable",
+    "textures": {
+        "particle": "sdspar:blocks/shredder_side",
+        "up": "sdspar:blocks/shredder_top",
+        "down": "sdspar:blocks/shredder_bottom",
+        "north": "sdspar:blocks/shredder_front",
+        "east": "sdspar:blocks/shredder_side",
+        "south": "sdspar:blocks/shredder_side",
+        "west": "sdspar:blocks/shredder_side"
+    }
+}
