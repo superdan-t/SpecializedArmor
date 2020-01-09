@@ -9,9 +9,8 @@ public class Ref {
 	public static final String CLIENT_PROXY_CLASS = "cc.sdspar.spar.main.ClientProxy";
 	public static final String COMMON_PROXY_CLASS = "cc.sdspar.spar.main.CommonProxy";
 	
-	public static final float ENERGY_MULT = 1;	//I don't know energy use standards; I'll use my own and scale later
-	
 	public static final int GUI_VACUUM_ARC_FURNACE = 1;
+	public static final int GUI_SHREDDER = 2;
 	
 
 }

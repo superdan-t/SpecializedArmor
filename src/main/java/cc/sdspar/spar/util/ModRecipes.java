@@ -3,8 +3,11 @@ package cc.sdspar.spar.util;
 import cc.sdspar.spar.block.ModBlocks;
 import cc.sdspar.spar.item.ModItems;
 import cc.sdspar.spar.util.handler.recpies.RecipeHandler;
+import cc.sdspar.spar.util.handler.recpies.ShredderRecipe;
 import cc.sdspar.spar.util.handler.recpies.VacuumArcRecipe;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
@@ -27,10 +30,16 @@ public class ModRecipes {
 		GameRegistry.addSmelting(ModBlocks.KAOLINITE_BLOCK, new ItemStack(ModBlocks.CERAMIC_BLOCK), 0.35F);
 		
 		//Vacuum Arc Furnace
+
+		
+		//Shredder
+		RecipeHandler.shredderRecipes.add(new ShredderRecipe(Item.getItemFromBlock(Blocks.STONE), new ItemStack(Item.getItemFromBlock(Blocks.GRAVEL)), 10));
+		RecipeHandler.shredderRecipes.add(new ShredderRecipe(Item.getItemFromBlock(Blocks.SANDSTONE), new ItemStack(Item.getItemFromBlock(Blocks.SAND)), 10));
+		
+		//Developer Recipes
 		if (ModConfig.DEVELOPER_MODE) {
-			//Recipes for testing purposes only
 			RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.STICK, Items.NETHER_STAR, new ItemStack(ModItems.ADVANCED_STICK), null));
-			RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.COAL, Items.ACACIA_DOOR, new ItemStack(Items.SHEARS), new ItemStack(Items.FIRE_CHARGE)));
+			RecipeHandler.vacuumArcRecipes.add(new VacuumArcRecipe(Items.COAL, Items.ACACIA_DOOR, new ItemStack(Items.SHEARS), new ItemStack(Items.FIRE_CHARGE)));		
 		}
 		
 	}

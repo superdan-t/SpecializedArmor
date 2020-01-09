@@ -2,6 +2,7 @@ package cc.sdspar.spar.util.handler;
 
 import cc.sdspar.spar.block.ModBlocks;
 import cc.sdspar.spar.item.ModItems;
+import cc.sdspar.spar.tileentity.TileEntityShredder;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import cc.sdspar.spar.util.IHasModel;
 import cc.sdspar.spar.util.Ref;
@@ -31,6 +32,7 @@ public class RegistryHandler {
 		event.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 		
 		GameRegistry.registerTileEntity(TileEntityVacuumArcFurnace.class, new ResourceLocation(Ref.MOD_ID + ":vacuum_arc_furnace"));
+		GameRegistry.registerTileEntity(TileEntityShredder.class, new ResourceLocation(Ref.MOD_ID + ":shredder"));
 		
 	}
 	

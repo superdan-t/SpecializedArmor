@@ -24,6 +24,14 @@ public class ModItems {
 	public static final Item LEAD_INGOT = new ItemBase("lead_ingot");
 	public static final Item MOISSANITE = new ItemBase("moissanite");
 	public static final Item NETHER_CRYSTAL = new ItemBase("nether_crystal");
+	public static final Item SHREDDER_BLADE_ALUMINUM = new ItemShredderBlade("aluminum");
+	public static final Item SHREDDER_BLADE_COPPER = new ItemShredderBlade("copper");
+	public static final Item SHREDDER_BLADE_DIAMOND = new ItemShredderBlade("diamond");
+	public static final Item SHREDDER_BLADE_GOLD = new ItemShredderBlade("gold");
+	public static final Item SHREDDER_BLADE_IRON = new ItemShredderBlade("iron");
+	public static final Item SHREDDER_BLADE_TIN = new ItemShredderBlade("tin");
+	public static final Item SHREDDER_BLADE_TITANIUM = new ItemShredderBlade("titanium");
+	public static final Item SHREDDED_SCRAP = new ItemBase("shredded_scrap");
 	public static final Item SILICON_CARBIDE = new ItemBase("silicon_carbide");
 	public static final Item TANTALUM_INGOT = new ItemBase("tantalum_ingot");
 	public static final Item TIN_INGOT = new ItemBase("tin_ingot");

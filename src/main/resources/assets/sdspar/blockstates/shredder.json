@@ -1,0 +1,9 @@
+{
+    "variants":
+    {
+        "facing=north": { "model": "sdspar:shredder" },
+        "facing=east": { "model": "sdspar:shredder", "y": 90 },
+        "facing=south": { "model": "sdspar:shredder", "y": 180 },
+        "facing=west": { "model": "sdspar:shredder", "y": 270 }
+    }
+}

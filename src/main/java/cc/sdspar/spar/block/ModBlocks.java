@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.material.Material;
 
 public class ModBlocks {
 
@@ -39,8 +40,10 @@ public class ModBlocks {
 	//Building blocks
 	public static final Block CERAMIC_BLOCK = new BlockCeramic("ceramic_block");
 	public static final Block KAOLINITE_BLOCK = new BlockKaolinite("kaolinite_block");
+	public static final Block SCRAP_BLOCK = new BlockBase("scrap_block", Material.GROUND);
 	
 	//Machines
+	public static final Block SHREDDER = new BlockShredder();
 	public static final Block VACUUM_ARC_FURNACE = new BlockVacuumArcFurnace();
 	
 	
