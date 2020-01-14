@@ -1,8 +1,8 @@
 package cc.sdspar.spar.item;
 
 import cc.sdspar.spar.main.Main;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.util.IHasModel;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item implements IHasModel {

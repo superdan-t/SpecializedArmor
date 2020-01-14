@@ -3,8 +3,8 @@ package cc.sdspar.spar.inventory.gui;
 import org.lwjgl.opengl.GL11;
 
 import cc.sdspar.spar.inventory.container.ContainerVacuumArcFurnace;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;

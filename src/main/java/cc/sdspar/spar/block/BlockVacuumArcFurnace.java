@@ -3,8 +3,8 @@ package cc.sdspar.spar.block;
 import java.util.Random;
 
 import cc.sdspar.spar.main.Main;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

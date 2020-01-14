@@ -1,7 +1,7 @@
 package cc.sdspar.spar.tabs;
 
 import cc.sdspar.spar.item.ModItems;
-import cc.sdspar.spar.util.Ref;
+import cc.sdspar.spar.main.Ref;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 

@@ -2,10 +2,10 @@ package cc.sdspar.spar.util.handler;
 
 import cc.sdspar.spar.block.ModBlocks;
 import cc.sdspar.spar.item.ModItems;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.tileentity.TileEntityShredder;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import cc.sdspar.spar.util.IHasModel;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;

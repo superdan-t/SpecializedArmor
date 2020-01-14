@@ -1,8 +1,8 @@
 package cc.sdspar.spar.block;
 
 import cc.sdspar.spar.main.Main;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.tileentity.TileEntityShredder;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.block.BlockHorizontal;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;

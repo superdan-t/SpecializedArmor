@@ -2,8 +2,8 @@ package cc.sdspar.spar.block;
 
 import cc.sdspar.spar.item.ModItems;
 import cc.sdspar.spar.main.Main;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.util.IHasModel;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;

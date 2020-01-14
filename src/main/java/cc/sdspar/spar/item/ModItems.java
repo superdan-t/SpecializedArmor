@@ -3,7 +3,7 @@ package cc.sdspar.spar.item;
 import java.util.ArrayList;
 import java.util.List;
 
-import cc.sdspar.spar.util.Ref;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.util.handler.materials.EnumRawMaterial;
 import net.minecraft.item.Item;
 

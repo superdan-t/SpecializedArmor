@@ -3,8 +3,8 @@ package cc.sdspar.spar.inventory.gui;
 import org.lwjgl.opengl.GL11;
 
 import cc.sdspar.spar.inventory.container.ContainerShredder;
+import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.tileentity.TileEntityShredder;
-import cc.sdspar.spar.util.Ref;
 import cc.sdspar.spar.util.handler.recpies.RecipeHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiContainer;

@@ -1,5 +1,6 @@
 package cc.sdspar.spar.util;
 
+import cc.sdspar.spar.main.Ref;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.Name;

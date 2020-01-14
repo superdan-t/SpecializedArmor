@@ -1,7 +1,6 @@
 package cc.sdspar.spar.main;
 
 import cc.sdspar.spar.tabs.MaterialsTab;
-import cc.sdspar.spar.util.Ref;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
