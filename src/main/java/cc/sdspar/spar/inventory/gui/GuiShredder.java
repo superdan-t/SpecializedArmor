@@ -64,7 +64,7 @@ public class GuiShredder extends GuiContainer {
 	}
 	
 	private int getScaledCharge(int scale) {
-		return (int) (48 * this.shredder.storage.getCharge() / this.shredder.storage.getCapacity());
+		return (int) (scale * this.shredder.storage.getCharge() / this.shredder.storage.getCapacity());
 	}
 
 }

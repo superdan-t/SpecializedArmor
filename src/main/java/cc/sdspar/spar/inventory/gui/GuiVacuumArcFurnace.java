@@ -53,7 +53,7 @@ public class GuiVacuumArcFurnace extends GuiContainer {
 	}
 	
 	private int getScaledCharge(int scale) {
-		return (int) (48 * this.vacuumArcFurnace.storage.getCharge() / this.vacuumArcFurnace.storage.getCapacity());
+		return (int) (scale * this.vacuumArcFurnace.storage.getCharge() / this.vacuumArcFurnace.storage.getCapacity());
 	}
 
 }
