@@ -12,7 +12,7 @@ public enum EnumRawMaterial {
 	ENDERINE_CRYSTAL(0, 0, 0, 0, 0, 0, 0, 0),
 	ENDERINE_DIAMOND(0, 0, 0, 0, 0, 0, 0, 0),
 	ENDERINE_DUST(0, 0, 0, 0, 0, 0, 0, 0),
-	ENDERINE_GOLD(0, 0, 0, 0, 0, 0, 0, 0),
+	ENDERINE_GOLD(0, 0, 0, 5, 0, 0, 3, 0),
 	ENDERINE_QUARTZ(0, 0, 0, 0, 0, 0, 0, 0),
 	HAFNIUM_CARBIDE(0, 0, 0, 0, 0, 0, 0, 0),
 	LEAD(0, 0, 0, 0, 0, 0, 0, 0),

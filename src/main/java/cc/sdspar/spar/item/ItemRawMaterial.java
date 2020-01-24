@@ -29,6 +29,11 @@ public class ItemRawMaterial extends ItemBase implements IAlloyMaterial {
 	}
 	
 	@Override
+	public int getCraftingValue(ItemStack stack) {
+		return 9;
+	}
+	
+	@Override
 	public void setProperty(ItemStack stack, EnumMaterialProperty prop, int value) {
 		properties.setProperty(prop, value);
 	}

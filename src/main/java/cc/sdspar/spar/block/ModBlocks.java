@@ -43,6 +43,8 @@ public class ModBlocks {
 	public static final Block SCRAP_BLOCK = new BlockBase("scrap_block", Material.GROUND);
 	
 	//Machines
+	public static final Block ALLOY_FURNACE = new BlockAlloyFurnace();
+	public static final Block ALLOY_MIXER = new BlockAlloyMixer();
 	public static final Block SHREDDER = new BlockShredder();
 	public static final Block VACUUM_ARC_FURNACE = new BlockVacuumArcFurnace();
 	

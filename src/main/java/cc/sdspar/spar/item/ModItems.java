@@ -3,16 +3,31 @@ package cc.sdspar.spar.item;
 import java.util.ArrayList;
 import java.util.List;
 
+import cc.sdspar.spar.item.armor.ItemArmorBase;
 import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.util.handler.materials.EnumRawMaterial;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
+import net.minecraftforge.common.util.EnumHelper;
 
 public class ModItems {
 	
 	public static final List<Item> ITEMS = new ArrayList<Item>();
 	
+	//Materials
+	public static final ArmorMaterial ARMOR_FRAME_MATERIAL = EnumHelper.addArmorMaterial("armor_frame_material", Ref.MOD_ID + ":armor_frame_material", 5, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, 0.0f);
+	
+	//Armor
+	public static final Item FRAME_HELMET = new ItemArmorBase("frame_helment", ARMOR_FRAME_MATERIAL, 1, EntityEquipmentSlot.HEAD);
+	public static final Item FRAME_CHESTPLATE = new ItemArmorBase("frame_chestplate", ARMOR_FRAME_MATERIAL, 1, EntityEquipmentSlot.CHEST);
+	public static final Item FRAME_LEGGINGS = new ItemArmorBase("frame_leggings", ARMOR_FRAME_MATERIAL, 2, EntityEquipmentSlot.LEGS);
+	public static final Item FRAME_BOOTS = new ItemArmorBase("frame_boots", ARMOR_FRAME_MATERIAL, 1, EntityEquipmentSlot.FEET);
+	
 	//Alloy Materials
-	public static final Item ALLOY_INGOT = new ItemAlloyIngot();
+	public static final Item ALLOY_INGOT = new ItemAlloyMaterial("ingot");
+	public static final Item ALLOY_DUST = new ItemAlloyMaterial("dust");
 	public static final Item ALUMINUM_INGOT = new ItemRawMaterial("aluminum_ingot", EnumRawMaterial.ALUMINUM);
 	public static final Item CERAMIC_BRICK = new ItemRawMaterial("ceramic_brick", EnumRawMaterial.CERAMIC);
 	public static final Item COPPER_INGOT = new ItemRawMaterial("copper_ingot", EnumRawMaterial.COPPER);

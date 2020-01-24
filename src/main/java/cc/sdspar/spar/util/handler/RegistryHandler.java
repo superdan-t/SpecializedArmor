@@ -3,6 +3,8 @@ package cc.sdspar.spar.util.handler;
 import cc.sdspar.spar.block.ModBlocks;
 import cc.sdspar.spar.item.ModItems;
 import cc.sdspar.spar.main.Ref;
+import cc.sdspar.spar.tileentity.TileEntityAlloyFurnace;
+import cc.sdspar.spar.tileentity.TileEntityAlloyMixer;
 import cc.sdspar.spar.tileentity.TileEntityShredder;
 import cc.sdspar.spar.tileentity.TileEntityVacuumArcFurnace;
 import cc.sdspar.spar.util.IHasModel;
@@ -33,6 +35,8 @@ public class RegistryHandler {
 		
 		GameRegistry.registerTileEntity(TileEntityVacuumArcFurnace.class, new ResourceLocation(Ref.MOD_ID + ":vacuum_arc_furnace"));
 		GameRegistry.registerTileEntity(TileEntityShredder.class, new ResourceLocation(Ref.MOD_ID + ":shredder"));
+		GameRegistry.registerTileEntity(TileEntityAlloyMixer.class, new ResourceLocation(Ref.MOD_ID + ":alloy_mixer"));
+		GameRegistry.registerTileEntity(TileEntityAlloyFurnace.class, new ResourceLocation(Ref.MOD_ID + ":alloy_furnace"));
 		
 	}
 	

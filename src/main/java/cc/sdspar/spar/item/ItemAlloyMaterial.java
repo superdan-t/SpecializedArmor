@@ -9,10 +9,19 @@ import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemAlloyIngot extends ItemBase implements IAlloyMaterial {
+public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 	
-	public ItemAlloyIngot() {
-		super("alloy_ingot");
+	private final int craftingValue;
+	
+	/**
+	 * For items with custom materials
+	 * @param type dust/ingot natively supported
+	 */
+	public ItemAlloyMaterial(String type) {
+		super("alloy_" + type);
+		if (type == "dust") craftingValue = 1;
+		else if (type == "ingot") craftingValue = 9;
+		else craftingValue = 0;
 	}
 
 	@Override
@@ -20,6 +29,11 @@ public class ItemAlloyIngot extends ItemBase implements IAlloyMaterial {
 		MaterialProperties mat = new MaterialProperties();
 		mat.deserializeNBT(stack.getTagCompound());
 		return mat.getProperty(prop);
+	}
+	
+	@Override
+	public int getCraftingValue(ItemStack stack) {
+		return craftingValue;
 	}
 
 	@Override

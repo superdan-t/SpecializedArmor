@@ -1,6 +1,6 @@
 package cc.sdspar.spar.main;
 
-public class Ref {
+public final class Ref {
 	
 	public static final String MOD_ID = "sdspar";
 	public static final String NAME = "Superdan_t's Specialized Armor";
@@ -11,6 +11,8 @@ public class Ref {
 	
 	public static final int GUI_VACUUM_ARC_FURNACE = 1;
 	public static final int GUI_SHREDDER = 2;
+	public static final int GUI_ALLOY_MIXER = 3;
+	public static final int GUI_ALLOY_FURNACE = 4;
 	
 
 }
