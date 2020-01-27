@@ -20,6 +20,7 @@ public class ItemStackHandlerAlloyFurnace extends ItemStackHandler {
 	
 	@Override
 	public void onContentsChanged(int slot) {
+		this.furnace.markDirty();
 		if (slot <= 3) furnace.inputChanged(slot);
 	}
 	
