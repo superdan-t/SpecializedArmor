@@ -29,6 +29,11 @@ public class ItemRawMaterial extends ItemBase implements IAlloyMaterial {
 	}
 	
 	@Override
+	public MaterialProperties getMaterialProperties(ItemStack stack) {
+		return properties.clone();
+	}
+	
+	@Override
 	public int getCraftingValue(ItemStack stack) {
 		return 9;
 	}

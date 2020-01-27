@@ -15,6 +15,7 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 	
 	private boolean activated = false;
 	private boolean inputsChanged = false;
+	private boolean inputsValid = false;
 	private int progress = 0;
 	private ItemStackHandlerAlloyFurnace fHandler;
 
@@ -27,8 +28,13 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 	@Override
 	public void update() {
 		
+		if (inputsChanged) {
+			inputsChanged = false;
+			inputsValid = inputsValid();
+		}
+		
 		if (activated) {
-			if (inputsChanged && inputsValid()) {
+			if (inputsValid) {
 				if (storage.getCharge() > 0) {
 					// TODO Operation time should scale with output quantity/type
 					if (progress >= 260) {

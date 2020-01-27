@@ -17,7 +17,11 @@ public enum EnumMaterialProperty {
 	 * @return Ordered array of length 8
 	 */
 	public static int[] beginPropertyArray() {
-		return new int[8];
+		return new int[getPropertyCount()];
+	}
+	
+	public static int getPropertyCount() {
+		return 8;
 	}
 	
 	public static int[] setPropertyInArray(int[] propArray, EnumMaterialProperty prop, int value) {

@@ -2,7 +2,12 @@ package cc.sdspar.spar.util.handler.materials;
 
 import net.minecraft.nbt.NBTTagCompound;
 
-public class MaterialProperties {
+/**
+ * MaterialProperties is a uniform way to share properties as a group,
+ * not for modifying properties. It should only be passed by making a copy
+ *
+ */
+public class MaterialProperties implements Cloneable {
 	
 	private int[] propArray = EnumMaterialProperty.beginPropertyArray();
 	
@@ -36,6 +41,10 @@ public class MaterialProperties {
 		EnumMaterialProperty.setPropertyInArray(propArray, prop, value);
 	}
 	
+	public int[] getPropertiesAsArray() {
+		return propArray.clone();
+	}
+	
 	public NBTTagCompound serializeNBT() {
 		NBTTagCompound tag = new NBTTagCompound();
 		tag.setIntArray("PropArray", propArray);
@@ -46,6 +55,11 @@ public class MaterialProperties {
 		if (tag.hasKey("MaterialPropertiesArray")) {
 			propArray = tag.getIntArray("PropArray");
 		}
+	}
+	
+	@Override
+	public MaterialProperties clone() {
+		return new MaterialProperties(propArray);
 	}
 
 }

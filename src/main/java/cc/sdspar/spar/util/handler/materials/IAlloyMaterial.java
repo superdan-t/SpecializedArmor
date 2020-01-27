@@ -12,6 +12,8 @@ public interface IAlloyMaterial {
 	
 	public int getProperty(ItemStack stack, EnumMaterialProperty prop);
 	
+	public MaterialProperties getMaterialProperties(ItemStack stack);
+	
 	public int getCraftingValue(ItemStack stack);
 	
 	public void setProperty(ItemStack stack, EnumMaterialProperty prop, int value);

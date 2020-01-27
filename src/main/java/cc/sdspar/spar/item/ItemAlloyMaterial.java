@@ -32,6 +32,13 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 	}
 	
 	@Override
+	public MaterialProperties getMaterialProperties(ItemStack stack) {
+		MaterialProperties mat = new MaterialProperties();
+		mat.deserializeNBT(stack.getTagCompound());
+		return mat;
+	}
+	
+	@Override
 	public int getCraftingValue(ItemStack stack) {
 		return craftingValue;
 	}

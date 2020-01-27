@@ -2,7 +2,6 @@ package cc.sdspar.spar.util.handler.materials;
 
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 
 /**
  * Use this to do any work with materials, don't handle materials with the
@@ -15,13 +14,38 @@ public class MaterialHelper {
 		if (stack.getItem() instanceof IAlloyMaterial) {
 			return ((IAlloyMaterial) (stack.getItem())).getProperty(stack, prop);
 		} else {
-			if (!stack.isEmpty()) System.out.println(OreDictionary.getOreIDs(stack));
+			//TODO Properties for vanilla materials
 			return 0;
 		}
 	}
 	
-	public static void setProperty(ItemStack stack, EnumMaterialProperty prop) {
+	public static MaterialProperties getMaterialProperties(ItemStack stack) {
+		if (stack.getItem() instanceof IAlloyMaterial) {
+			return ((IAlloyMaterial) (stack.getItem())).getMaterialProperties(stack);
+		} else {
+			//TODO Properties for vanilla materials
+			return new MaterialProperties();
+		}
+	}
+	
+	public static void setProperty(ItemStack stack, EnumMaterialProperty prop, int value) {
+		if (stack.getItem() instanceof IAlloyMaterial) {
+			((IAlloyMaterial) (stack.getItem())).setProperty(stack, prop, value);
+		}
+	}
+	
+	public static MaterialProperties combineStackMaterials(ItemStack s1, ItemStack s2) {
 		
+		int s1PropArray[] = getMaterialProperties(s1).getPropertiesAsArray();
+		int s2PropArray[] = getMaterialProperties(s2).getPropertiesAsArray();
+		
+		int combinedPropArray[] = new int[EnumMaterialProperty.getPropertyCount()];
+		
+		for (int i = 0; i < combinedPropArray.length; i++) {
+			combinedPropArray[i] = s1PropArray[i] + s2PropArray[i];
+		}
+		
+		return new MaterialProperties(combinedPropArray);
 	}
 	
 	/**
