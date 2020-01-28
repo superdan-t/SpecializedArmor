@@ -2,8 +2,10 @@ package cc.sdspar.spar.tileentity;
 
 import cc.sdspar.spar.energy.TileEntityEnergyConsumer;
 import cc.sdspar.spar.inventory.handler.ItemStackHandlerAlloyFurnace;
-import cc.sdspar.spar.util.handler.materials.EnumMaterialProperty;
+import cc.sdspar.spar.item.ModItems;
 import cc.sdspar.spar.util.handler.materials.MaterialHelper;
+import cc.sdspar.spar.util.handler.materials.MaterialProperties;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
@@ -31,6 +33,7 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 		if (inputsChanged) {
 			inputsChanged = false;
 			inputsValid = inputsValid();
+			System.out.println("Input state changed: " + (inputsValid ? "valid" : "invalid"));
 		}
 		
 		if (activated) {
@@ -66,11 +69,18 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 		for (int i = 0; i < 4; i++) {
 			total += MaterialHelper.getCraftingCapability(fHandler.getInput(i));
 		}
-		return total % 9 == 0 && total != 0;
+		return total % 9 == 0 && total != 0 && MaterialHelper.stackMaterialsEqual(fHandler.getResult(0), getResult());
 	}
 	
 	private void processInputs() {
-		// TODO Do stuff
+	
+	}
+	
+	private ItemStack getResult() {
+		MaterialProperties combinedMaterials = MaterialHelper.combineStackMaterials(fHandler.getInput(0), fHandler.getInput(1), fHandler.getInput(2), fHandler.getInput(3));
+		ItemStack outputStack = new ItemStack(ModItems.ALLOY_INGOT);
+		MaterialHelper.setMaterialProperties(outputStack, combinedMaterials);
+		return outputStack;
 	}
 	
 	@Override

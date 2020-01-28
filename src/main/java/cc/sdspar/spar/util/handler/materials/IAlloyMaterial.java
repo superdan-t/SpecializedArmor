@@ -18,4 +18,6 @@ public interface IAlloyMaterial {
 	
 	public void setProperty(ItemStack stack, EnumMaterialProperty prop, int value);
 
+	public void setMaterialProperties(ItemStack stack, MaterialProperties props);
+
 }

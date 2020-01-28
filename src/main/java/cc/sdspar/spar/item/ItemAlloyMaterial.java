@@ -52,6 +52,13 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 	}
 	
 	@Override
+	public void setMaterialProperties(ItemStack stack, MaterialProperties props) {
+		System.out.println(stack);
+		System.out.println(stack.getTagCompound());
+		//stack.getTagCompound().setTag("MaterialProperties", props.serializeNBT());
+	}
+	
+	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 		if (stack.hasTagCompound()) {

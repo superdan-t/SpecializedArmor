@@ -44,6 +44,11 @@ public class ItemRawMaterial extends ItemBase implements IAlloyMaterial {
 	}
 	
 	@Override
+	public void setMaterialProperties(ItemStack stack, MaterialProperties props) {
+		properties = props.clone();
+	}
+	
+	@Override
 	public void addInformation(ItemStack stack, World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 		tooltip.add("Raw crafting material:");

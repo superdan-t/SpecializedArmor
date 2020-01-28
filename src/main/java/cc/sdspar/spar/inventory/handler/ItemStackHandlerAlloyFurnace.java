@@ -32,6 +32,10 @@ public class ItemStackHandlerAlloyFurnace extends ItemStackHandler {
 		return index <= 3 ? this.stacks.get(index) : ItemStack.EMPTY;
 	}
 	
+	public ItemStack getResult(int index) {
+		return index == 0 ? this.stacks.get(4) : ItemStack.EMPTY;
+	}
+	
 	/**
 	 * For results processing by the TileEntity
 	 * @param index Included on provision of future interfacing
@@ -39,7 +43,7 @@ public class ItemStackHandlerAlloyFurnace extends ItemStackHandler {
 	 * @return
 	 */
 	public ItemStack addResult(int index, ItemStack result) {
-		return index == 0 ? insertItem(index + 4, result, false) : result;
+		return index == 0 ? insertItem(4, result, false) : result;
 	}
 
 }

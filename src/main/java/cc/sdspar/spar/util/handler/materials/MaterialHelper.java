@@ -34,18 +34,40 @@ public class MaterialHelper {
 		}
 	}
 	
-	public static MaterialProperties combineStackMaterials(ItemStack s1, ItemStack s2) {
-		
-		int s1PropArray[] = getMaterialProperties(s1).getPropertiesAsArray();
-		int s2PropArray[] = getMaterialProperties(s2).getPropertiesAsArray();
-		
-		int combinedPropArray[] = new int[EnumMaterialProperty.getPropertyCount()];
-		
-		for (int i = 0; i < combinedPropArray.length; i++) {
-			combinedPropArray[i] = s1PropArray[i] + s2PropArray[i];
+	public static void setMaterialProperties(ItemStack stack, MaterialProperties props) {
+		if (stack.getItem() instanceof IAlloyMaterial) {
+			((IAlloyMaterial) (stack.getItem())).setMaterialProperties(stack, props);
 		}
-		
+	}
+	
+	public static MaterialProperties combineStackMaterials(ItemStack...stacks) {
+		MaterialProperties[] props = new MaterialProperties[stacks.length];
+		for (int i = 0; i < stacks.length; i++) {
+			props[i] = getMaterialProperties(stacks[i]);
+		}
+		return combineMaterials(props);
+	}
+	
+	public static MaterialProperties combineMaterials(MaterialProperties...props) {
+		int combinedPropArray[] = new int[EnumMaterialProperty.getPropertyCount()];
+		for (int i = 0; i < props.length; i++) {
+			int[] currentPropArray = props[i].getPropertiesAsArray();
+			for (int j = 0; j < EnumMaterialProperty.getPropertyCount(); j++) {
+				combinedPropArray[j] += currentPropArray[j];
+			}
+		}
 		return new MaterialProperties(combinedPropArray);
+	}
+	
+	public static boolean stackMaterialsEqual(ItemStack...stacks) {
+		int[] s1PropArray = getMaterialProperties(stacks[0]).getPropertiesAsArray();
+		for (int j = 0; j < stacks.length; j++) {
+			int[] currentPropArray = getMaterialProperties(stacks[j]).getPropertiesAsArray();
+			for (int i = 0; i < EnumMaterialProperty.getPropertyCount(); i++) {
+				if (s1PropArray[i] != currentPropArray[i]) return false;
+			}
+		}
+		return true;
 	}
 	
 	/**
