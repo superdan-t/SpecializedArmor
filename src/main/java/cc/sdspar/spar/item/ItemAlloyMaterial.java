@@ -77,7 +77,7 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.STRENGTH)));
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.WEIGHT)));
 		} else {
-			tooltip.add("An alloy made of nothing... Cheater!");
+			tooltip.add("Nothing. Absolutely nothing. Unobtainable item.");
 		}
 	}
 	

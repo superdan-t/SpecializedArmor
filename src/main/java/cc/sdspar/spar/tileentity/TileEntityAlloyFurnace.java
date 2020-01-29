@@ -36,9 +36,11 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 			System.out.println("Input state changed: " + (inputsValid ? "valid" : "invalid"));
 		}
 		
+		activated = true;
+		
 		if (activated) {
 			if (inputsValid) {
-				if (storage.getCharge() > 0) {
+				/*if (storage.getCharge() > 0) {
 					// TODO Operation time should scale with output quantity/type
 					if (progress >= 260) {
 						processInputs();
@@ -51,7 +53,8 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 					if (progress > 0) {
 						progress--;
 					}
-				}
+				}*/
+				processInputs();
 			}
 			
 		} else {
@@ -73,6 +76,8 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 	}
 	
 	private void processInputs() {
+		
+		fHandler.addResult(0, getResult());
 	
 	}
 	
