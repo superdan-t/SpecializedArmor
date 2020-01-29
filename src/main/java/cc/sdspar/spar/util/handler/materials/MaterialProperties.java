@@ -52,7 +52,7 @@ public class MaterialProperties implements Cloneable {
 	}
 	
 	public void deserializeNBT(NBTTagCompound tag) {
-		if (tag.hasKey("MaterialPropertiesArray")) {
+		if (tag.hasKey("PropArray")) {
 			propArray = tag.getIntArray("PropArray");
 		}
 	}

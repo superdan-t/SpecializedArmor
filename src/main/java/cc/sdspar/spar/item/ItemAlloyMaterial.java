@@ -7,6 +7,7 @@ import cc.sdspar.spar.util.handler.materials.IAlloyMaterial;
 import cc.sdspar.spar.util.handler.materials.MaterialProperties;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
@@ -26,6 +27,7 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 
 	@Override
 	public int getProperty(ItemStack stack, EnumMaterialProperty prop) {
+		verifyTagCompound(stack);
 		MaterialProperties mat = new MaterialProperties();
 		mat.deserializeNBT(stack.getTagCompound());
 		return mat.getProperty(prop);
@@ -33,8 +35,9 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 	
 	@Override
 	public MaterialProperties getMaterialProperties(ItemStack stack) {
+		verifyTagCompound(stack);
 		MaterialProperties mat = new MaterialProperties();
-		mat.deserializeNBT(stack.getTagCompound());
+		mat.deserializeNBT(stack.getTagCompound().getCompoundTag("MaterialProperties"));
 		return mat;
 	}
 	
@@ -45,6 +48,7 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 
 	@Override
 	public void setProperty(ItemStack stack, EnumMaterialProperty prop, int value) {
+		verifyTagCompound(stack);
 		MaterialProperties mat = new MaterialProperties();
 		mat.deserializeNBT(stack.getTagCompound());
 		mat.setProperty(prop, value);
@@ -53,9 +57,8 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 	
 	@Override
 	public void setMaterialProperties(ItemStack stack, MaterialProperties props) {
-		System.out.println(stack);
-		System.out.println(stack.getTagCompound());
-		//stack.getTagCompound().setTag("MaterialProperties", props.serializeNBT());
+		verifyTagCompound(stack);
+		stack.getTagCompound().setTag("MaterialProperties", props.serializeNBT());
 	}
 	
 	@Override
@@ -73,9 +76,16 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.RESILIENCE)));
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.STRENGTH)));
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.WEIGHT)));
+		} else {
+			tooltip.add("An alloy made of nothing... Cheater!");
 		}
-		tooltip.add("An alloy made of nothing... Cheater!");
-	}	
+	}
+	
+	private void verifyTagCompound(ItemStack stack) {
+		if (stack.getTagCompound() == null) {
+			stack.setTagCompound(new NBTTagCompound());
+		}
+	}
 	
 
 }
