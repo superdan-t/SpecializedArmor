@@ -70,19 +70,20 @@ public class TileEntityAlloyFurnace extends TileEntityEnergyConsumer {
 	public boolean inputsValid() {
 		int total = 0;
 		for (int i = 0; i < 4; i++) {
-			total += MaterialHelper.getCraftingCapability(fHandler.getInput(i));
+			total += MaterialHelper.getCraftingCapability(fHandler.getInputSlot(i));
 		}
-		return total % 9 == 0 && total != 0 && MaterialHelper.stackMaterialsEqual(fHandler.getResult(0), getResult());
+		return total % 9 == 0 && total != 0 && (MaterialHelper.stackMaterialsEqual(fHandler.getResultSlot(0), getProcessingResult()) || fHandler.getResultSlot(0).isEmpty());
 	}
 	
 	private void processInputs() {
 		
-		fHandler.addResult(0, getResult());
+		fHandler.addResult(0, getProcessingResult());
 	
 	}
 	
-	private ItemStack getResult() {
-		MaterialProperties combinedMaterials = MaterialHelper.combineStackMaterials(fHandler.getInput(0), fHandler.getInput(1), fHandler.getInput(2), fHandler.getInput(3));
+	// TODO RENAME AFTER DEBUGGING - Names are too arbitrary
+	private ItemStack getProcessingResult() {
+		MaterialProperties combinedMaterials = MaterialHelper.combineStackMaterials(fHandler.getInputSlot(0), fHandler.getInputSlot(1), fHandler.getInputSlot(2), fHandler.getInputSlot(3));
 		ItemStack outputStack = new ItemStack(ModItems.ALLOY_INGOT);
 		MaterialHelper.setMaterialProperties(outputStack, combinedMaterials);
 		return outputStack;

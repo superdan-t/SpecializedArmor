@@ -24,15 +24,15 @@ public class ItemStackHandlerAlloyFurnace extends ItemStackHandler {
 		if (slot <= 3) furnace.inputChanged(slot);
 	}
 	
-	public ItemStack getInternalChargeProvider() {
+	public ItemStack getChargeProviderSlot() {
 		return this.stacks.get(5);
 	}
 	
-	public ItemStack getInput(int index) {
+	public ItemStack getInputSlot(int index) {
 		return index <= 3 ? this.stacks.get(index) : ItemStack.EMPTY;
 	}
 	
-	public ItemStack getResult(int index) {
+	public ItemStack getResultSlot(int index) {
 		return index == 0 ? this.stacks.get(4) : ItemStack.EMPTY;
 	}
 	

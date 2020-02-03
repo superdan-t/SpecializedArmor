@@ -66,7 +66,7 @@ public class ItemAlloyMaterial extends ItemBase implements IAlloyMaterial {
 		super.addInformation(stack, worldIn, tooltip, flagIn);
 		if (stack.hasTagCompound()) {
 			MaterialProperties properties = new MaterialProperties();
-			properties.deserializeNBT(stack.getTagCompound());
+			properties.deserializeNBT(stack.getTagCompound().getCompoundTag("MaterialProperties"));
 			tooltip.add("Raw crafting material:");
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.CAPACITY)));
 			tooltip.add(Integer.toString(properties.getProperty(EnumMaterialProperty.CONDUCTIVITY)));
