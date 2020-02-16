@@ -1,6 +1,7 @@
 package cc.sdspar.spar.main;
 
 import cc.sdspar.spar.event.ArmorEventHandler;
+import cc.sdspar.spar.event.StaticEventHandler;
 import cc.sdspar.spar.inventory.handler.GuiHandler;
 import cc.sdspar.spar.network.PacketHandler;
 import cc.sdspar.spar.util.ModRecipes;
@@ -24,6 +25,7 @@ public class CommonProxy {
 	
 	public void init(FMLInitializationEvent e) {
 		MinecraftForge.EVENT_BUS.register(new ArmorEventHandler());
+		MinecraftForge.EVENT_BUS.register(StaticEventHandler.class);
     	ModRecipes.init();
     	RegistryHandler.registerOres();
     	NetworkRegistry.INSTANCE.registerGuiHandler(Main.instance, new GuiHandler());

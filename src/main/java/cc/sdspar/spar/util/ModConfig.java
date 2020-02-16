@@ -4,6 +4,7 @@ import cc.sdspar.spar.main.Ref;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.Name;
+import net.minecraftforge.common.config.Config.RangeInt;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -23,6 +24,11 @@ public class ModConfig {
 	@Name("Developer mode")
 	@Comment("Adds back \"Advanced Stick\" (normally unobtainable + unusable) to enable debug mode in some machines")
 	public static boolean DEVELOPER_MODE = false;
+	
+	@Name("Message check interval")
+	@Comment("How frequently to check for messages from the mod authors in seconds")
+	@RangeInt(min=7)
+	public static int UPDATE_INTERVAL = 10;
 
 	@EventBusSubscriber(modid = Ref.MOD_ID)
 	private static class EventHandler {

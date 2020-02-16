@@ -8,6 +8,7 @@ public final class Ref {
 	public static final String ACCEPTED_VERSIONS = "[1.12.2]";
 	public static final String CLIENT_PROXY_CLASS = "cc.sdspar.spar.main.ClientProxy";
 	public static final String COMMON_PROXY_CLASS = "cc.sdspar.spar.main.CommonProxy";
+	public static final String API_URL = "http://api.sdspar.cc";
 	
 	public static final int GUI_VACUUM_ARC_FURNACE = 1;
 	public static final int GUI_SHREDDER = 2;
