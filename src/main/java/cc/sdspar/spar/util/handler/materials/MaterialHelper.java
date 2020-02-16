@@ -40,10 +40,14 @@ public class MaterialHelper {
 		}
 	}
 	
+	/**
+	 * Combines material properties, multiplying by stack size
+	 */
 	public static MaterialProperties combineStackMaterials(ItemStack...stacks) {
 		MaterialProperties[] props = new MaterialProperties[stacks.length];
 		for (int i = 0; i < stacks.length; i++) {
 			props[i] = getMaterialProperties(stacks[i]);
+			props[i].multiply(stacks[i].getCount());
 		}
 		return combineMaterials(props);
 	}

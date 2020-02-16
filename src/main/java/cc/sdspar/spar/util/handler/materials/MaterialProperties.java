@@ -57,6 +57,12 @@ public class MaterialProperties implements Cloneable {
 		}
 	}
 	
+	public void multiply(int factor) {
+		for (int i = 0; i < propArray.length; i++) {
+			propArray[i] = propArray[i] * factor;
+		}
+	}
+	
 	@Override
 	public MaterialProperties clone() {
 		return new MaterialProperties(propArray);
