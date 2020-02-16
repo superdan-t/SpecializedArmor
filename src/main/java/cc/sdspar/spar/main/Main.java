@@ -1,5 +1,7 @@
 package cc.sdspar.spar.main;
 
+import org.apache.logging.log4j.Logger;
+
 import cc.sdspar.spar.tabs.MaterialsTab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
@@ -14,6 +16,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class Main {
      
     public static final CreativeTabs MATERIALS_TAB = new MaterialsTab();
+    public static Logger logger;
     
     @Instance
     public static Main instance = new Main();
@@ -23,6 +26,7 @@ public class Main {
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent e) {
+    	logger = e.getModLog();
     	proxy.preInit(e);
     }
 
