@@ -23,7 +23,7 @@ public class Message implements INetAssembled {
     public boolean persist;
     public LocalDateTime activates;
     public LocalDateTime expires;
-
+    
     public Message() {}
     
     @Override
@@ -88,9 +88,9 @@ public class Message implements INetAssembled {
     public boolean isDisabled() {
     	return isDisabled(id);
     }
-
-    public void disable() {
-        if (!isDisabled()) {
+    
+    public static void disable(int id) {
+        if (!isDisabled(id)) {
             try {
                 FileWriter fw = new FileWriter("config/sdspar_dismissed_messages.txt", true);
                 fw.write(String.valueOf(id));
@@ -100,6 +100,10 @@ public class Message implements INetAssembled {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void disable() {
+    	disable(id);
     }
 
     @Override

@@ -24,6 +24,7 @@ public class CommonProxy {
     }
 	
 	public void init(FMLInitializationEvent e) {
+		System.out.println("Proxy");
 		MinecraftForge.EVENT_BUS.register(new ArmorEventHandler());
 		MinecraftForge.EVENT_BUS.register(StaticEventHandler.class);
     	ModRecipes.init();
