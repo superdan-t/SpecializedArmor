@@ -76,6 +76,11 @@ public class CommandMessages  extends CommandBase {
 	public List<String> getAliases() {
 		return Lists.newArrayList("sparmessage", "spmsg", "sparmsg");
 	}
+	
+	@Override
+	public int getRequiredPermissionLevel() {
+		return 0;
+	}
 
 
 

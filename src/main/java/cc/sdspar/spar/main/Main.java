@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.NAME, version = Ref.VERSION)
 public class Main {
@@ -39,5 +40,11 @@ public class Main {
     public static void postInit(FMLPostInitializationEvent e) {
     
     }
+    
+	@EventHandler
+	public void serverStarted(FMLServerStartedEvent e) {
+		Main.logger.info("STARTED. THIS IS WHERE THE API WOULD START ITS THREADS");
+	}
+	
 
 }
