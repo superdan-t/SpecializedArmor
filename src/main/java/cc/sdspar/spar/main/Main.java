@@ -2,6 +2,8 @@ package cc.sdspar.spar.main;
 
 import org.apache.logging.log4j.Logger;
 
+import cc.sdspar.spar.command.CommandMessages;
+import cc.sdspar.spar.network.api.NetworkAPI;
 import cc.sdspar.spar.tabs.MaterialsTab;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.fml.common.Mod;
@@ -12,6 +14,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 
 @Mod(modid = Ref.MOD_ID, name = Ref.NAME, version = Ref.VERSION)
 public class Main {
@@ -41,9 +44,14 @@ public class Main {
     
     }
     
+    @EventHandler
+    public void serverStarting(FMLServerStartingEvent e) {
+    	e.registerServerCommand(new CommandMessages());
+    }
+    
 	@EventHandler
 	public void serverStarted(FMLServerStartedEvent e) {
-		Main.logger.info("STARTED. THIS IS WHERE THE API WOULD START ITS THREADS");
+		NetworkAPI.startServerAPI();
 	}
 	
 

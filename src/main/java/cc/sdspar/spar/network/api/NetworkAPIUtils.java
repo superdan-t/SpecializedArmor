@@ -14,6 +14,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.util.text.TextComponentString;
 
 public class NetworkAPIUtils {
+	
+	public static boolean server = false;
 
 	public static List<INetAssembled> readObjects(URL url) throws IOException {
 		BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
@@ -134,13 +136,14 @@ public class NetworkAPIUtils {
     }
 
 	public static boolean notifyUser(String message) {
-		try {
+		if (server) {
+			Main.logger.info(message.replace('&', '§'));
+			return true;
+		} else {
 			if (Minecraft.getMinecraft().player != null) {
 				Minecraft.getMinecraft().player.sendMessage(new TextComponentString(message.replace('&', '§')));
 				return true;
 			}
-		} catch (NoClassDefFoundError e) {
-			Main.logger.info(message.replace('&', '§'));
 		}
 		return false;
 	}
