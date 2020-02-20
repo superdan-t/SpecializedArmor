@@ -12,13 +12,19 @@ import cc.sdspar.spar.main.Ref;
 public class Version implements INetAssembled {
 	
 	public String version;
+	public String tagline;
 	public URL url;
 
 	public Version() { }
 	
 	public static List<Version> getVersions() throws MalformedURLException, IOException {
-        ArrayList<Version> list = new ArrayList<Version>();
-        NetworkAPIUtils.readObjects(new URL(Ref.API_URL + "/update.map"));
+        List<Version> list = new ArrayList<Version>();
+        List<INetAssembled> inet = NetworkAPIUtils.readObjects(new URL(Ref.API_URL + "/update.map"));
+        for (INetAssembled i : inet) {
+        	if (i instanceof Version) {
+        		list.add((Version)i);
+        	}
+        }
         return list;
 	}
 	
@@ -48,7 +54,11 @@ public class Version implements INetAssembled {
 		value = (String)props.get("version");
 		if (value != null) {
 			version = value;
-		}	
+		}
+		value = (String)props.get("tag");
+		if (value != null) {
+			tagline = value;
+		}
 	}
 
 }

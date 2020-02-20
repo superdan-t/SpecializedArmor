@@ -65,8 +65,13 @@ public class Message implements INetAssembled {
     }
     
     public static List<Message> getMessages() throws MalformedURLException, IOException {
-        ArrayList<Message> list = new ArrayList<Message>();
-        NetworkAPIUtils.readObjects(new URL(Ref.API_URL + "/motd.msg"));
+        List<Message> list = new ArrayList<Message>();
+        List<INetAssembled> inet = NetworkAPIUtils.readObjects(new URL(Ref.API_URL + "/motd.msg"));
+        for (INetAssembled i : inet) {
+        	if (i instanceof Message) {
+        		list.add((Message)i);
+        	}
+        }
         return list;
     }
     
