@@ -3,6 +3,7 @@ package cc.sdspar.spar.main;
 import org.apache.logging.log4j.Logger;
 
 import cc.sdspar.spar.command.CommandMessages;
+import cc.sdspar.spar.command.CommandUpdateServer;
 import cc.sdspar.spar.network.api.NetworkAPI;
 import cc.sdspar.spar.tabs.MaterialsTab;
 import net.minecraft.creativetab.CreativeTabs;
@@ -47,6 +48,7 @@ public class Main {
     @EventHandler
     public void serverStarting(FMLServerStartingEvent e) {
     	e.registerServerCommand(new CommandMessages());
+    	e.registerServerCommand(new CommandUpdateServer());
     }
     
 	@EventHandler

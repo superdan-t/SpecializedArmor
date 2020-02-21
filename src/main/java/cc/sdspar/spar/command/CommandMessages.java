@@ -22,7 +22,7 @@ public class CommandMessages  extends CommandBase {
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "Usage: /spmsg <suppress:view> [message id]";
+		return "/spmsg <suppress:view> [message id]";
 	}
 
 	@Override

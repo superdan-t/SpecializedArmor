@@ -3,6 +3,8 @@ package cc.sdspar.spar.network.api;
 import java.util.List;
 
 import cc.sdspar.spar.main.Ref;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.util.text.TextComponentString;
 
 public class Updater {
 
@@ -32,6 +34,24 @@ public class Updater {
 				} catch (InterruptedException e) { }
 			}
 			
+		}
+		
+	}
+	
+	public static class GrabUpdate implements Runnable {
+		
+		private ICommandSender sender;
+		
+		public GrabUpdate() {}
+		
+		public GrabUpdate(ICommandSender sender) {
+			this.sender = sender;
+		}
+
+		@Override
+		public void run() {
+			updateDistroMappings();
+			sender.sendMessage(new TextComponentString("Done updating mappings..."));
 		}
 		
 	}
