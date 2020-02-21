@@ -14,17 +14,22 @@ public class Updater {
 		public void run() {
 			
 			updateDistroMappings();
-			System.out.println(distros);
 			
 			Version newest = getNewest();
 			Version current = new Version();
 			current.version = Ref.VERSION;
-			if (newest != null && newest.isNewerThan(current)) {
-	
-				NetworkAPIUtils.notifyUser("&0[&dSpecialized Armor&0] &7An update is available for the mod.\nNew Version: " + newest.version + 
-						"\nCurrent Version: " + current.version + "\nUpdate Details: " + newest.tagline + "\nAutomatically update with: '/spup latest' ");
-			} else {
-				NetworkAPIUtils.notifyUser("&0[&dSpecialized Armor&0] &7Mod is up to date");
+			boolean updateAvailable = newest != null && newest.isNewerThan(current);
+			boolean userReached = false;
+			while (!userReached) {
+				if (updateAvailable) {
+					userReached = NetworkAPIUtils.notifyUser(Ref.CHAT_HEADER + "An update is available for the mod.\nNew Version: &7" + newest.version + 
+							"\nCurrent Version: &7" + current.version + "\nUpdate Details: &7" + newest.tagline + "\nAutomatically update with: '/spup latest' ");
+				} else {
+					break;
+				}
+				try {
+					Thread.sleep(1000);
+				} catch (InterruptedException e) { }
 			}
 			
 		}
@@ -51,7 +56,6 @@ public class Updater {
 	
 	public static Version getNewest() {
 		Version best = new Version();
-		best.version = "0.0.0";
 		for (Version v : distros) {
 			if (v.isNewerThan(best)) {
 				best = v;

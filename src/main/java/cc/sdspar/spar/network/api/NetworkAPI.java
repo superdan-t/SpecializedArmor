@@ -9,6 +9,10 @@ public class NetworkAPI {
 		if (messenger != null) messenger.interrupt();
 		messenger = new Thread(new NetworkMessageChecker());
 		messenger.start();
+		
+		Thread updates = new Thread(new Updater.CheckForUpdates());
+		updates.start();
+		
 	}
 	
 	public static void startServerAPI() {

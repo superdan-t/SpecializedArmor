@@ -11,8 +11,8 @@ import cc.sdspar.spar.main.Ref;
 
 public class Version implements INetAssembled {
 	
-	public String version;
-	public String tagline;
+	public String version = "-1.-1.-1"; // If unfilled, always compares to older
+	public String tagline = "<none provided>";
 	public URL url;
 
 	public Version() { }
@@ -29,9 +29,9 @@ public class Version implements INetAssembled {
 	}
 	
 	public boolean isNewerThan(Version v) {
-		String[] semc = v.version.split(".");
+		String[] semc = v.version.split("\\.");
 		int[] cVersion = {Integer.valueOf(semc[0]), Integer.valueOf(semc[1]), Integer.valueOf(semc[2])};
-		semc = version.split(".");
+		semc = version.split("\\.");
 		int[] tVersion = {Integer.valueOf(semc[0]), Integer.valueOf(semc[1]), Integer.valueOf(semc[2])};
 		
 		return (tVersion[0] > cVersion[0]) || (tVersion[0] == cVersion[0] && tVersion[1] > cVersion[1]) ||  (tVersion[0] == cVersion[0] && tVersion[1] == cVersion[1] && tVersion[2] > cVersion[2]);
