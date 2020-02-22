@@ -1,3 +1,4 @@
+command.update.server_warning=Warning: You are trying to update the mod, but the server you are on will keep using the old version. You won't be able to join again until the admins update the server. Run '/spup cancel' to stop this update. 
 container.foundry=Basic Foundry
 container.vacuum_arc_furnace=Vacuum Arc Furnace
 gui.auger=Auger
