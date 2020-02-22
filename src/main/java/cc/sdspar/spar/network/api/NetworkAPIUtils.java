@@ -137,11 +137,11 @@ public class NetworkAPIUtils {
 
 	public static boolean notifyUser(String message) {
 		if (server) {
-			Main.logger.info(message.replace('&', '\167'));
+			Main.logger.info(message.replace('&', (char) 167));
 			return true;
 		} else {
 			if (Minecraft.getMinecraft().player != null) {
-				Minecraft.getMinecraft().player.sendMessage(new TextComponentString(message.replace('&', '\167')));
+				Minecraft.getMinecraft().player.sendMessage(new TextComponentString(message.replace('&', (char) 167)));
 				return true;
 			}
 		}
