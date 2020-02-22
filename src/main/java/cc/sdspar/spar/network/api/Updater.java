@@ -51,7 +51,22 @@ public class Updater {
 		@Override
 		public void run() {
 			updateDistroMappings();
-			sender.sendMessage(new TextComponentString("Done updating mappings..."));
+			if (sender != null) sender.sendMessage(new TextComponentString("Done updating mappings..."));
+//			// Testing indicates old file can't be deleted here or on shutdown, so develop an external JAR to do it instead
+//			File oldFile = new File("mods/sdspar-" + Ref.VERSION + ".jar");
+//			Main.logger.info(oldFile.exists());
+//			if (oldFile.delete()) {
+//				Main.logger.info("Successfully deleted the old file.");
+//			} else {
+//				System.out.println("==== MUST RETRY ====");
+//				Runtime.getRuntime().addShutdownHook(new Thread() {
+//					public void run() {
+//						File oldFile = new File("mods/sdspar-" + Ref.VERSION + ".jar");
+//						Main.logger.info(oldFile.exists());
+//						Main.logger.info(oldFile.delete());
+//					}
+//				});
+//			}
 		}
 		
 	}
