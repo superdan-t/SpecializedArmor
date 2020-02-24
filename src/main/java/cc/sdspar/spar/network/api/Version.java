@@ -28,6 +28,7 @@ public class Version implements INetAssembled {
         return list;
 	}
 	
+	//TODO rewrite to support versions with other than 3 parts
 	public boolean isNewerThan(Version v) {
 		String[] semc = v.version.split("\\.");
 		int[] cVersion = {Integer.valueOf(semc[0]), Integer.valueOf(semc[1]), Integer.valueOf(semc[2])};
