@@ -42,19 +42,19 @@ public class Main {
 
     @EventHandler
     public static void postInit(FMLPostInitializationEvent e) {
-    
+
     }
     
     @EventHandler
-    public void serverStarting(FMLServerStartingEvent e) {
+    public static void serverStarting(FMLServerStartingEvent e) {
     	e.registerServerCommand(new CommandMessages());
     	e.registerServerCommand(new CommandUpdateServer());
     }
     
 	@EventHandler
-	public void serverStarted(FMLServerStartedEvent e) {
+	public static void serverStarted(FMLServerStartedEvent e) {
 		NetworkAPI.startServerAPI();
 	}
-	
+
 
 }

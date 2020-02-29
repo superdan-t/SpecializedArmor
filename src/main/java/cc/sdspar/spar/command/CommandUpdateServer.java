@@ -18,7 +18,7 @@ public class CommandUpdateServer extends CommandUpdate {
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		
 		System.out.println("Executing on server...");
-		Thread installer = new Thread(new Updater.GrabUpdate(sender));
+		Thread installer = new Thread(new Updater.GrabVersion(sender));
 		installer.run();
 		
 	}

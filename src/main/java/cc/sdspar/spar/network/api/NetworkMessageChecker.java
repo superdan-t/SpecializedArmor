@@ -38,7 +38,6 @@ public class NetworkMessageChecker implements Runnable {
                     		break;
                     	}
                     }
-                	
                 }
                 if (playerUnavailable) {
                 	Thread.sleep(3000);

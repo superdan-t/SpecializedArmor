@@ -20,8 +20,7 @@ public class CommandUpdateClient extends CommandUpdate {
 		if (server == null) {
 			sender.sendMessage(new TextComponentString((char) 167 + "e").appendSibling(new TextComponentTranslation("command.update.server_warning")));
 		}
-		Thread installer = new Thread(new Updater.GrabUpdate(sender));
-		installer.run();
+		new Updater.GrabVersion(sender);
 		
 	}
 	

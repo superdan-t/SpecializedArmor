@@ -1,21 +1,28 @@
 package cc.sdspar.spar.network.api;
 
+import java.io.IOException;
+import java.nio.file.Paths;
 import java.util.List;
 
+import cc.sdspar.spar.main.Main;
 import cc.sdspar.spar.main.Ref;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class Updater {
 
 	public static List<Version> distros;
+	
+	public static GrabVersion installer;
 	
 	public static class CheckForUpdates implements Runnable {
 
 		@Override
 		public void run() {
 			
-			updateDistroMappings();
+			updateReleaseMappings();
 			
 			Version newest = getNewest();
 			Version current = new Version();
@@ -38,40 +45,61 @@ public class Updater {
 		
 	}
 	
-	public static class GrabUpdate implements Runnable {
+	public static class GrabVersion implements Runnable {
 		
 		private ICommandSender sender;
 		
-		public GrabUpdate() {}
+		public GrabVersion() {
+			if (installer == null) {
+				installer = this;
+				this.run();
+			}
+		}
 		
-		public GrabUpdate(ICommandSender sender) {
+		public GrabVersion(ICommandSender sender) {
 			this.sender = sender;
+			if (installer == null) {
+				installer = this;
+				this.run();
+			} else {
+				reply(new TextComponentTranslation("command.update.conflict"));
+			}
+		}
+		
+		public void reply(ITextComponent message) {
+			if (sender != null) sender.sendMessage(message);
+		}
+		
+		public void reply(String str) {
+			if (sender != null) sender.sendMessage(new TextComponentString(str));
 		}
 
 		@Override
 		public void run() {
-			updateDistroMappings();
-			if (sender != null) sender.sendMessage(new TextComponentString("Done updating mappings..."));
-//			// Testing indicates old file can't be deleted here or on shutdown, so develop an external JAR to do it instead
-//			File oldFile = new File("mods/sdspar-" + Ref.VERSION + ".jar");
-//			Main.logger.info(oldFile.exists());
-//			if (oldFile.delete()) {
-//				Main.logger.info("Successfully deleted the old file.");
-//			} else {
-//				System.out.println("==== MUST RETRY ====");
-//				Runtime.getRuntime().addShutdownHook(new Thread() {
-//					public void run() {
-//						File oldFile = new File("mods/sdspar-" + Ref.VERSION + ".jar");
-//						Main.logger.info(oldFile.exists());
-//						Main.logger.info(oldFile.delete());
-//					}
-//				});
-//			}
+			
+			updateReleaseMappings();
+			
+			Runtime.getRuntime().addShutdownHook(new Thread() {
+				public void run() {
+					Main.logger.info("The update will be attempted now.");
+					ProcessBuilder modupgrade = new ProcessBuilder("java", "-jar", Paths.get(System.getProperty("user.dir")).resolve("mods/ModUpgrade/modupgrade-1.0.jar").toString(), 
+							"--get", "https://github.com/superdan-t/SpecializedArmor/releases/download/v1.0.0/spar-pre-release-1.0.0.jar", 
+							"--mcversion", "1.12.2",  "--path", System.getProperty("user.dir"));
+					try {
+						modupgrade.start();
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			
+			reply(new TextComponentTranslation("command.update.pending"));
+			
 		}
 		
 	}
 	
-	public static void updateDistroMappings() {
+	public static void updateReleaseMappings() {
 		try {
 			distros = Version.getVersions();
 		} catch (Exception e) {
