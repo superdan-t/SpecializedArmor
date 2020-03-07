@@ -11,7 +11,7 @@ public abstract class CommandUpdate extends CommandBase {
 
 	@Override
 	public String getUsage(ICommandSender sender) {
-		return "/spup <latest:version> [version]";
+		return "/" + this.getName() + " <latest:version:cancel> [version]";
 	}
 	
 	@Override

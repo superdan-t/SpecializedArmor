@@ -1,5 +1,6 @@
 package cc.sdspar.spar.network.api;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.ConnectException;
 import java.net.MalformedURLException;
@@ -11,6 +12,8 @@ import java.util.List;
 import cc.sdspar.spar.main.Main;
 import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.util.ModConfig;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class NetworkMessageChecker implements Runnable {
 	
@@ -23,6 +26,14 @@ public class NetworkMessageChecker implements Runnable {
 	@Override
     public void run() {
 		try {
+			// This is a very lazy way to both create the file and check for the first launch
+			File msgFile = new File("config/sdspar_dismissed_messages.txt");
+    		if (!msgFile.exists()) {
+    			msgFile.createNewFile();
+    			while (!NetworkAPIUtils.notifyUser(new TextComponentString(Ref.CHAT_HEADER).appendSibling(new TextComponentTranslation("api.firstlaunch.client")).getFormattedText())) {
+    				Thread.sleep(3000);
+    			}
+    		}
         	updateMessageList();
         	sessionDisabled = new ArrayList<Integer>();
         	boolean playerUnavailable = false;

@@ -29,6 +29,14 @@ public class ModConfig {
 	@Comment("How frequently to check for messages from the mod authors in seconds")
 	@RangeInt(min=7)
 	public static int UPDATE_INTERVAL = 10;
+	
+	@Name("Check for updates")
+	@Comment("Whether to look for new versions or not")
+	public static boolean CHECK_UPDATES = true;
+	
+	@Name("Reset (INTERNAL)")
+	@Comment("Internally used to display info messages to player")
+	public static boolean RESET = true;
 
 	@EventBusSubscriber(modid = Ref.MOD_ID)
 	private static class EventHandler {
