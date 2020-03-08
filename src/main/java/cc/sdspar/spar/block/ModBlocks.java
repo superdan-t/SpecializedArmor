@@ -44,7 +44,6 @@ public class ModBlocks {
 	
 	//Machines
 	public static final Block ALLOY_FURNACE = new BlockAlloyFurnace();
-	public static final Block ALLOY_MIXER = new BlockAlloyMixer();
 	public static final Block SHREDDER = new BlockShredder();
 	public static final Block VACUUM_ARC_FURNACE = new BlockVacuumArcFurnace();
 	
