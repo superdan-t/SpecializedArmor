@@ -33,7 +33,7 @@ public class NetworkMessageChecker implements Runnable {
 			File msgFile = new File("config/sdspar_dismissed_messages.txt");
     		if (!msgFile.exists()) {
     			msgFile.createNewFile();
-    			while (!NetworkAPIUtils.notifyUser(new TextComponentString(Ref.CHAT_HEADER).appendSibling(new TextComponentTranslation("api.firstlaunch.client")).getFormattedText())) {
+    			while (!NetworkAPIUtils.notifyUser(new TextComponentString(Ref.CHAT_HEADER).appendSibling(new TextComponentTranslation("api.firstlaunch")).getFormattedText())) {
     				Thread.sleep(3000);
     			}
     		}

@@ -1,12 +1,11 @@
-api.firstlaunch.client=We use network API calls to check for updates and messages from the mod authors. ABSOLUTELY NO game data is collected other than mcversion when YOU REQUEST an update. You can disable messages and update checks in the config.
-api.firstlaunch.serverWe use network API calls to check for updates and messages from the mod authors. ABSOLUTELY NO game data is collected other than mcversion when YOU REQUEST an update. You can disable messages and update checks in the config.
+api.firstlaunch=Network API calls can check for messages (/spmsg) or install updates (/spup). Game data is not collected, but basic info (IP address) is logged. You can disable messages and update checks in the config.
 command.update.server.already_running=An update is already scheduled. Use '/spupserv cancel' to stop it before scheduling a new update.
 command.update.canceled=Any pending updates have been canceled.
 command.update.client.already_running=An update is already scheduled. Use '/spup cancel' to stop it before scheduling a new update.
 command.update.invalid=That version could not be found.
 command.update.java=The upgrade utility, ModUpgrade, requires Java, but it appears you only have the integrated version for Minecraft. Please install Java 8 or higher, or update manually.
 command.update.pending=The update will be attempted once the game is closed.
-command.update.server_warning=Warning: You are trying to update the mod, but the server you are on will keep using the old version. You won't be able to join again until the admins update the server. Run '/spup cancel' to stop this update. 
+command.update.server_warning=Warning: You are trying to update, but this server will keep using the old version. You won't be able to join until the server updates. Run '/spup cancel' to stop this update, or '/spupserv' if you are admin.
 container.foundry=Basic Foundry
 container.vacuum_arc_furnace=Vacuum Arc Furnace
 gui.auger=Auger
