@@ -26,6 +26,9 @@ public class NetworkMessageChecker implements Runnable {
 	@Override
     public void run() {
 		try {
+			
+			if (!ModConfig.CHECK_UPDATES) return;
+			
 			// This is a very lazy way to both create the file and check for the first launch
 			File msgFile = new File("config/sdspar_dismissed_messages.txt");
     		if (!msgFile.exists()) {

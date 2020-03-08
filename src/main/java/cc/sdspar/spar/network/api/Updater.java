@@ -6,6 +6,7 @@ import java.util.List;
 
 import cc.sdspar.spar.main.Main;
 import cc.sdspar.spar.main.Ref;
+import cc.sdspar.spar.util.ModConfig;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -20,6 +21,8 @@ public class Updater {
 
 		@Override
 		public void run() {
+			
+			if (!ModConfig.CHECK_UPDATES) return;
 			
 			updateReleaseMappings();
 			

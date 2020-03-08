@@ -13,31 +13,19 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 @Config(modid = Ref.MOD_ID)
 public class ModConfig {
 	
-	@Name("Industrial mode")
-	@Comment("Change machine energy usage to balance with industrial mods")
-	public static boolean INDUSTRIAL_MODE = true;
-	
-	@Name("Modpack mode")
-	@Comment("Reduce the generation of copper, tin, and aluminum since they are commonly added in other mods")
-	public static boolean MODPACK_MODE = false;
-	
-	@Name("Developer mode")
-	@Comment("Adds back \"Advanced Stick\" (normally unobtainable + unusable) to enable debug mode in some machines")
-	public static boolean DEVELOPER_MODE = false;
+	@Name("Display author messages")
+	@Comment("Whether to look for messages from the mod authors")
+	public static boolean CHECK_MESSAGES = true;
 	
 	@Name("Message check interval")
 	@Comment("How frequently to check for messages from the mod authors in seconds")
-	@RangeInt(min=7)
-	public static int UPDATE_INTERVAL = 10;
+	@RangeInt(min=70)
+	public static int UPDATE_INTERVAL = 270;
 	
 	@Name("Check for updates")
 	@Comment("Whether to look for new versions or not")
 	public static boolean CHECK_UPDATES = true;
 	
-	@Name("Reset (INTERNAL)")
-	@Comment("Internally used to display info messages to player")
-	public static boolean RESET = true;
-
 	@EventBusSubscriber(modid = Ref.MOD_ID)
 	private static class EventHandler {
 		@SubscribeEvent

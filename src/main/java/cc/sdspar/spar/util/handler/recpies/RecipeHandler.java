@@ -5,8 +5,6 @@ import java.util.List;
 
 import cc.sdspar.spar.item.ItemShredderBlade;
 import cc.sdspar.spar.item.ModItems;
-import cc.sdspar.spar.util.ModConfig;
-import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
 public class RecipeHandler {
@@ -45,7 +43,7 @@ public class RecipeHandler {
 	}
 	
 	public static final boolean isShredderBlade(ItemStack stack) {
-		return (ModConfig.DEVELOPER_MODE && (stack.getItem() == ModItems.ADVANCED_STICK || stack.getItem() == Items.GOLDEN_HOE) || stack.getItem() instanceof ItemShredderBlade);
+		return stack.getItem() instanceof ItemShredderBlade;
 	}
 
 
