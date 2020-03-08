@@ -1,5 +1,6 @@
 package cc.sdspar.spar.network.api;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.List;
@@ -7,6 +8,7 @@ import java.util.List;
 import cc.sdspar.spar.main.Main;
 import cc.sdspar.spar.main.Ref;
 import cc.sdspar.spar.util.ModConfig;
+import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
@@ -47,10 +49,15 @@ public class Updater {
 		
 	}
 	
-	public static boolean install(ICommandSender sender, String version) {
+	public static boolean install(ICommandSender sender, String version) throws CommandException {
 		if (installer == null || installer.failed) {
-			installer = new ModUpgradeHandler(sender, version);
-			installer.run();
+			File modupgrade = Paths.get(System.getProperty("user.dir")).resolve("mods/ModUpgrade/modupgrade.jar").toFile();
+			if (modupgrade.exists() && modupgrade.isFile()) {
+				installer = new ModUpgradeHandler(sender, version);
+				installer.run();
+			} else {
+				throw new CommandException(new TextComponentTranslation("command.update.missing").getUnformattedText());
+			}
 			return true;
 		} else {
 			return false;
@@ -71,7 +78,7 @@ public class Updater {
 		private ICommandSender sender;
 		private Thread upgrader;
 		private String versionToGet;
-		public boolean failed = false;;
+		public boolean failed = false;
 		
 		public ModUpgradeHandler(ICommandSender sender, String v) {
 			this.sender = sender;
@@ -120,7 +127,7 @@ public class Updater {
 			@Override
 			public void run() {
 				Main.logger.info("The mod will be updated once the game is closed.");
-				ProcessBuilder modupgrade = new ProcessBuilder("java", "-jar", Paths.get(System.getProperty("user.dir")).resolve("mods/ModUpgrade/modupgrade-1.0.jar").toString(), 
+				ProcessBuilder modupgrade = new ProcessBuilder("java", "-jar", Paths.get(System.getProperty("user.dir")).resolve("mods/ModUpgrade/modupgrade.jar").toString(), 
 						"--get", target.url.toString(), 
 						"--mcversion", "1.12.2",  "--path", System.getProperty("user.dir"), "--modid", Ref.MOD_ID);
 				try {

@@ -1,6 +1,5 @@
 package cc.sdspar.spar.network.api;
 
-import net.minecraft.server.integrated.IntegratedServer;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class NetworkAPI {
@@ -19,7 +18,7 @@ public class NetworkAPI {
 	}
 	
 	public static void startServerAPI() {
-		if (FMLCommonHandler.instance().getMinecraftServerInstance() instanceof IntegratedServer) return;
+		if (!FMLCommonHandler.instance().getMinecraftServerInstance().isDedicatedServer()) return;
 		NetworkAPIUtils.server = true;
 		if (messenger != null) messenger.interrupt();
 		messenger = new Thread(new NetworkMessageChecker());

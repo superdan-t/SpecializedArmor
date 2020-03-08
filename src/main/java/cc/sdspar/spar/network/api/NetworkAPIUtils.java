@@ -1,17 +1,25 @@
 package cc.sdspar.spar.network.api;
 
 import java.io.BufferedReader;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
 
 import cc.sdspar.spar.main.Main;
+import cc.sdspar.spar.main.Ref;
 import net.minecraft.client.Minecraft;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentString;
+import java.io.File;
 
 public class NetworkAPIUtils {
 	
@@ -45,6 +53,8 @@ public class NetworkAPIUtils {
 			obj = new Message();
 		} else if (type.equals("distro")) {
 			obj = new Version();
+		} else if (type.equals("proxy")) {
+			obj = new DLProxy();
 		}
 		if (obj != null) obj.setProperties(dict);
 		return obj;
@@ -146,6 +156,59 @@ public class NetworkAPIUtils {
 			}
 		}
 		return false;
+	}
+	
+	public static class FileDownloader implements Runnable {
+		
+		private String remote;
+		private Path destination;
+		private ICommandSender sender;
+		private ITextComponent failure;
+		private ITextComponent success;
+
+		public FileDownloader(String remote, Path destination, ICommandSender sender, ITextComponent failure, ITextComponent success) {
+			this.remote = remote;
+			this.destination = destination;
+			this.sender = sender;
+			this.failure = failure;
+			this.success = success;
+		}
+		
+		@Override
+		public void run() {
+			try {
+				List<INetAssembled> proxies;
+				proxies = readObjects(new URL(Ref.API_URL + "/proxies.map"));
+				URL url = null;
+				for (INetAssembled i : proxies) {
+					if (i instanceof DLProxy) {
+						if (((DLProxy) i).name.equals(remote)) {
+							url = ((DLProxy) i).url;
+						}
+					}
+				}
+				File df = destination.toFile();
+				if (!(df.getParentFile().exists() || df.getParentFile().mkdirs())) {
+					throw new Exception("Could not ensure destination");
+				}
+				ReadableByteChannel rbc = Channels.newChannel(url.openStream());
+				FileOutputStream fos = new FileOutputStream(df);
+				fos.getChannel().transferFrom(rbc, 0, Long.MAX_VALUE);
+				fos.close();
+				rbc.close();
+				if (df.exists() && df.isFile()) {
+					sender.sendMessage(success);
+					return;
+				}
+			} catch (Exception e) {
+				Main.logger.error(e.getMessage());
+				e.printStackTrace();
+			}
+			sender.sendMessage(failure);
+		}
+		
+		
+		
 	}
 
 

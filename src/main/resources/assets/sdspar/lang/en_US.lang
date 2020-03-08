@@ -1,11 +1,14 @@
 api.firstlaunch=Network API calls can check for messages (/spmsg) or install updates (/spup). Game data is not collected, but basic info (IP address) is logged. You can disable messages and update checks in the config.
 command.update.server.already_running=An update is already scheduled. Use '/spupserv cancel' to stop it before scheduling a new update.
 command.update.canceled=Any pending updates have been canceled.
-command.update.client.already_running=An update is already scheduled. Use '/spup cancel' to stop it before scheduling a new update.
+command.update.already_running=An update is already scheduled. Use '/spup[serv] cancel' to stop it before scheduling a new update.
 command.update.invalid=That version could not be found.
 command.update.java=The upgrade utility, ModUpgrade, requires Java, but it appears you only have the integrated version for Minecraft. Please install Java 8 or higher, or update manually.
 command.update.pending=The update will be attempted once the game is closed.
 command.update.server_warning=Warning: You are trying to update, but this server will keep using the old version. You won't be able to join until the server updates. Run '/spup cancel' to stop this update, or '/spupserv' if you are admin.
+command.update.missing=SPar UPgrade requires ModUpgrade, which can be fetched per your request. Run '/spup ModUpgrade' or '/spupserv ModUpgrade' to download (~20 KB)
+command.update.modupgrade.failed=Could not download ModUpgrade. See logs for more details.
+command.update.modupgrade.success=Downloaded ModUpgrade. If you tried to update the mod, you will have to run that command again.
 container.foundry=Basic Foundry
 container.vacuum_arc_furnace=Vacuum Arc Furnace
 gui.auger=Auger
