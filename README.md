@@ -1,9 +1,12 @@
-# Origination of Idea
+# SpecializedArmor for Minecraft Forge 1.12.2
+This mod was intended to allow players to create customizable and technically advanced pieces of armor to fit in with other industrial mods. I began working on this for Minecraft 1.7.10 between 2016 and 2017. Minecraft modding was my first experience with Java and OOP in general, so I had a lot to learn, and much of the code in this repo is rough. As I moved on, other projects took priority, so this is still in a pre-release state and has been unmaintained since 2020. I still play Minecraft, and I'm still interested in the topic, but if this project resumes, it will be as a fun side project, and I will start the code fresh.
+
+## Origination of Idea
 I’ve played a number of industrial/exploration style modpacks and, despite the super-advanced mods that seem to be able to do anything, the armors that they add remain rather plain and boring. The vanilla enchantments get repetitive, and there is always that debate over whether armor added by this mod is better than that one. In the end, most of the armor from mods that I have sampled only offers various levels of protection and durability. Nothing pushes the limits or causes you to think twice after equipping it. If we are wrapping people in LCD screens and cameras to make invisibility armor in real life, why can’t a game with enchantments, potions, magic, and dozens of other industrial mods accomplish the same effect?
 The line of thought above was prompted by the struggle of walking more than 10 blocks in the nether on one of my old modpacks. We had Lycanite’s Mobs installed, along with the difficulty cranked up, and it made the nether the perfect representation of the Hell that it is supposed to be. We wanted fire protecting armor to help us out, but despite having 95 mods, there wasn’t anything available to make the cut. That’s when I took the matter into my own hands.
 Originally, I made a suit of protective gear that a fireman would wear. It offered complete fire protection in exchange for low damage protection overall. Crafting it was also extremely ridiculous and we never managed to obtain any.
 Then, I decided to revive the idea but in a more polished, professional format that would appease the rant that appeared in the first paragraph and match our industrial/exploration modpack.
-# Fairness Guidelines
+## Fairness Guidelines
 All of the features in this mod are intended to feel balanced with a power progression to match game progress. Due to the diversity of difficulty among the modpacks out there, I will probably release two versions of this mod, with one being standard (perfect for a modpack with something like Lycanite’s Mobs in it) and the other nerfed (intended for a more lightweight modpack).
-# Purpose of Features
+## Purpose of Features
 The main goal of this mod is to amplify the role of armor in Minecraft by making pieces customizable with unique add-ons. It will match the theme of an industrial mod by utilizing machines, computers, and energy.
